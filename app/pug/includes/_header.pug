@@ -1,0 +1,83 @@
+﻿header.header
+  .container
+    .header__top.flex.jc-sb.ai-b
+      .header__left.inline-flex.ai-c
+        a(href="#").logo.header__logo
+          img(src="./img/logo.png" alt="title")
+        ul.socials.header__socials.inline-flex
+          li
+            a(href="#" target="_blank")
+              <svg><use xlink:href="#facebook-icon"/></svg>
+          li
+            a(href="#" target="_blank")
+              <svg><use xlink:href="#instagram-icon"/></svg>
+        .header__contacts
+          a(href="tel:+66 (098) 654-76-89").header__phone +66 (098) 654-76-89
+          a(href="#" data-fancybox-href="#callback-modal" data-fancybox).header__callback Перезвонить?
+      .header__right.inline-flex.jc-fe.ai-c
+        nav.header__nav
+          ul.flex
+            li
+              a(href="#") Аренда
+              <svg><use xlink:href="#arrow-icon"/></svg>
+              .header__megamenu.flex.ai-s
+                .header__megamenu-img(style="background-image: url('./img/megamenu-img.jpg')")
+                ul.header__nav-inner
+                  li
+                    a(href="#") Апартаменты
+                  li
+                    a(href="#") Квартиры
+                  li
+                    a(href="#") Виллы
+                  li
+                    a(href="#") Дома
+                  li
+                    a(href="#") Бунгало
+            li
+              a(href="#") Продажа
+              <svg><use xlink:href="#arrow-icon"/></svg>
+              .header__megamenu.flex.ai-s
+                .header__megamenu-img(style="background-image: url('./img/megamenu-img.jpg')")
+                ul.header__nav-inner
+                  li
+                    a(href="#") Апартаменты
+                  li
+                    a(href="#") Квартиры
+                  li
+                    a(href="#") Виллы
+                  li
+                    a(href="#") Дома
+            li
+              a(href="#") Пляжи
+              <svg><use xlink:href="#arrow-icon"/></svg>
+              .header__megamenu.flex.ai-s
+                .header__megamenu-img(style="background-image: url('./img/megamenu-img.jpg')")
+                ul.header__nav-inner
+                  li
+                    a(href="#") Апартаменты
+                  li
+                    a(href="#") Квартиры
+            li
+              a(href="#") Карта
+            li
+              a(href="#") Блог
+            li
+              a(href="#") Контакты
+        .header__currency.dropdown
+          p USD
+          ul
+            li USD
+            li THB
+            li EUR
+        .header__languages.dropdown
+          p RU
+          ul
+            li RU
+            li EN
+        .header__search#header__search
+          form(action="#")
+            li
+              span.header__search-icon
+                <svg><use xlink:href="#search-icon"/></svg>
+              input(type="search" placeholder="Что будем искать?")
+

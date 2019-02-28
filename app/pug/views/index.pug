@@ -1,0 +1,37 @@
+extends ../includes/_layout
+
+block header
+  include ../includes/_header
+
+block main
+  main.main
+    section.banner(data-vide-bg="mp4: ./video/beach.mp4, poster: ./video/poster.jpg")
+    section.configurator.pt
+      .container
+        p.configurator__title Мы поможем вам найти идеальный вариант
+        form.flex.jc-sb.ai-b.configurator__form.mt
+          .form__group
+            .form__group-input
+              select.styled-select
+                option(disabled selected) Выберите тип сделки
+                option Аренда
+                option Продажа
+          .form__group
+            .form__group-input
+              select.styled-select
+                option(disabled selected) Выберите тип жилья
+                option Апартаменты
+                option Квартиры
+                option Виллы
+                option Дома
+                option Бунгало
+          .form__group
+            .form__group-input
+              select.styled-select
+                option(disabled selected) Выберите количество комнат
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5+
+          button.btn.configurator__btn Начать поиск

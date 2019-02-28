@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/main.min.css">
+    <title>Title</title>
+</head>
+
+<body>
+    <div class="page flex fd-c jc-sb" id="page">
+        <header class="header">
+            <div class="container">
+                <div class="header__top flex jc-sb ai-b">
+                    <div class="header__left inline-flex ai-c"><a class="logo header__logo" href="#"><img src="./img/logo.png" alt="title"></a>
+                        <ul class="socials header__socials inline-flex">
+                            <li><a href="#" target="_blank"><svg>
+                                        <use xlink:href="#facebook-icon" /></svg></a></li>
+                            <li><a href="#" target="_blank"><svg>
+                                        <use xlink:href="#instagram-icon" /></svg></a></li>
+                        </ul>
+                        <div class="header__contacts"><a class="header__phone" href="tel:+66 (098) 654-76-89">+66 (098) 654-76-89</a><a class="header__callback" href="#" data-fancybox-href="#callback-modal" data-fancybox>Перезвонить?</a></div>
+                    </div>
+                    <div class="header__right inline-flex jc-fe ai-c">
+                        <nav class="header__nav">
+                            <ul class="flex">
+                                <li><a href="#">Аренда</a><svg>
+                                        <use xlink:href="#arrow-icon" /></svg>
+                                    <div class="header__megamenu flex ai-s">
+                                        <div class="header__megamenu-img" style="background-image: url('./img/megamenu-img.jpg')"></div>
+                                        <ul class="header__nav-inner">
+                                            <li><a href="#">Апартаменты</a></li>
+                                            <li><a href="#">Квартиры</a></li>
+                                            <li><a href="#">Виллы</a></li>
+                                            <li><a href="#">Дома</a></li>
+                                            <li><a href="#">Бунгало</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="#">Продажа</a><svg>
+                                        <use xlink:href="#arrow-icon" /></svg>
+                                    <div class="header__megamenu flex ai-s">
+                                        <div class="header__megamenu-img" style="background-image: url('./img/megamenu-img.jpg')"></div>
+                                        <ul class="header__nav-inner">
+                                            <li><a href="#">Апартаменты</a></li>
+                                            <li><a href="#">Квартиры</a></li>
+                                            <li><a href="#">Виллы</a></li>
+                                            <li><a href="#">Дома</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="#">Пляжи</a><svg>
+                                        <use xlink:href="#arrow-icon" /></svg>
+                                    <div class="header__megamenu flex ai-s">
+                                        <div class="header__megamenu-img" style="background-image: url('./img/megamenu-img.jpg')"></div>
+                                        <ul class="header__nav-inner">
+                                            <li><a href="#">Апартаменты</a></li>
+                                            <li><a href="#">Квартиры</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="#">Карта</a></li>
+                                <li><a href="#">Блог</a></li>
+                                <li><a href="#">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__currency dropdown">
+                            <p>USD</p>
+                            <ul>
+                                <li>USD</li>
+                                <li>THB</li>
+                                <li>EUR</li>
+                            </ul>
+                        </div>
+                        <div class="header__languages dropdown">
+                            <p>RU</p>
+                            <ul>
+                                <li>RU</li>
+                                <li>EN</li>
+                            </ul>
+                        </div>
+                        <div class="header__search" id="header__search">
+                            <form action="#">
+                                <li><span class="header__search-icon"><svg>
+                                            <use xlink:href="#search-icon" /></svg></span><input type="search" placeholder="Что будем искать?"></li>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="banner" data-vide-bg="mp4: ./video/beach.mp4, poster: ./video/poster.jpg"></section>
+            <section class="configurator pt">
+                <div class="container">
+                    <p class="configurator__title">Мы поможем вам найти идеальный вариант</p>
+                    <form class="flex jc-sb ai-b configurator__form mt">
+                        <div class="form__group">
+                            <div class="form__group-input"><select class="styled-select">
+                                    <option disabled selected>Выберите тип сделки</option>
+                                    <option>Аренда</option>
+                                    <option>Продажа</option>
+                                </select></div>
+                        </div>
+                        <div class="form__group">
+                            <div class="form__group-input"><select class="styled-select">
+                                    <option disabled selected>Выберите тип жилья</option>
+                                    <option>Апартаменты</option>
+                                    <option>Квартиры</option>
+                                    <option>Виллы</option>
+                                    <option>Дома</option>
+                                    <option>Бунгало</option>
+                                </select></div>
+                        </div>
+                        <div class="form__group">
+                            <div class="form__group-input"><select class="styled-select">
+                                    <option disabled selected>Выберите количество комнат</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select></div>
+                        </div><button class="btn configurator__btn">Начать поиск</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="footer"></footer>
+    </div>
+    <nav class="mobile-menu hidden" id="mobile-menu">
+        <ul></ul>
+    </nav><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="hidden">
+        <symbol id="instagram-icon" viewBox="0 0 68 68">
+            <path d="M3.1,0C1.4,0,0,1.4,0,3.1v61.7c0,1.7,1.4,3.1,3.1,3.1h61.7c1.7,0,3.1-1.4,3.1-3.1V3.1c0-1.7-1.4-3.1-3.1-3.1H3.1z" />
+            <circle cx="54" cy="14" r="4" fill="#fff" />
+            <path fill="#fff" d="M34.2,51.7c-9.6,0-17.4-7.8-17.4-17.4s7.8-17.4,17.4-17.4s17.4,7.8,17.4,17.4S43.8,51.7,34.2,51.7z M34.2,21.8 c-6.9,0-12.4,5.6-12.4,12.4s5.6,12.4,12.4,12.4c6.9,0,12.4-5.6,12.4-12.4S41.1,21.8,34.2,21.8z" />
+        </symbol>
+        <symbol id="facebook-icon" viewBox="0 0 60.7 60.7">
+            <path d="M57.4,0h-54C1.5,0,0,1.5,0,3.4v54c0,1.9,1.5,3.4,3.4,3.4h29.1V37.2h-7.9V28h7.9v-6.8c0-7.8,4.8-12.1,11.8-12.1 c3.4,0,6.2,0.3,7.1,0.4v8.2l-4.9,0c-3.8,0-4.5,1.8-4.5,4.5V28H51l-1.2,9.2h-7.9v23.5h15.5c1.9,0,3.4-1.5,3.4-3.4v-54 C60.7,1.5,59.2,0,57.4,0z" />
+        </symbol>
+        <symbol id="search-icon" viewBox="0 0 72.1 72.1">
+            <path d="M70.9,65.3L57.4,51.7c10.9-14,8.3-34.1-5.7-45s-34.1-8.3-45,5.7s-8.3,34.1,5.7,45c11.6,9,27.8,9,39.3,0l13.6,13.6 c1.6,1.6,4.1,1.6,5.7,0S72.5,66.8,70.9,65.3z M32.1,56.1c-13.3,0-24-10.7-24-24s10.7-24,24-24s24,10.7,24,24S45.4,56.1,32.1,56.1z" />
+        </symbol>
+        <symbol id="arrow-icon" viewBox="0 0 13.1 24">
+            <path d="M13.1,0.9V0.8C13,0.3,12.4-0.1,11.9,0c-0.2,0-0.4,0.1-0.6,0.3l-11,11c-0.4,0.4-0.4,1,0,1.4l0,0l11,11c0.4,0.4,1,0.4,1.4,0 c0.4-0.4,0.4-1,0-1.4L2.5,12L12.8,1.8C13,1.6,13.1,1.3,13.1,0.9z" />
+        </symbol>
+    </svg>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/build.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
