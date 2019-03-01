@@ -11,8 +11,6 @@ jQuery(document).ready(function ($) {
     alwaysShowTracks: true
   });
 
-  console.log(scrollbar.offset)
-
   $(window).resize(function () {
     windowWidth = $(window).width();
   });
@@ -140,4 +138,18 @@ jQuery(document).ready(function ($) {
   //   });
   // })();
 
+  console.log($('.products__item').position())
+
+  $('.scroll-content').watch({
+    properties: "transform",
+
+    callback: function(data, i) {
+      var propChanged = data.props[i];
+      var newValue = data.vals[i];
+
+      var el = this;
+      var el$ = $(this);
+      console.log(propChanged, newValue)
+    }
+  });
 });
