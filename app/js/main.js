@@ -6,10 +6,10 @@ jQuery(document).ready(function ($) {
 
   var Scrollbar = window.Scrollbar;
 
-  var scrollbar = Scrollbar.init(document.querySelector('#page'), {
-    damping: .025,
-    alwaysShowTracks: true
-  });
+  // var scrollbar = Scrollbar.init(document.querySelector('#page'), {
+  //   damping: .025,
+  //   alwaysShowTracks: true
+  // });
 
   $(window).resize(function () {
     windowWidth = $(window).width();
@@ -124,19 +124,6 @@ jQuery(document).ready(function ($) {
   $('#header__search .header__search-icon').click((e) => {
     $('#header__search').toggleClass('active');
   });
-
-  // (() => {
-  //   $('.products__item').each(function() {
-  //     $(this).onScreen({
-  //       container: '.products__content',
-  //       toggleClass: 'try',
-  //       tolerance: 50,
-  //       doIn() {
-  //         console.log('in')
-  //       }
-  //     })
-  //   });
-  // })();
 
   console.log($('.products__item').position())
 

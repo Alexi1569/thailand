@@ -127,7 +127,7 @@ body .scrollbar-track-y {
 }
 
 .page {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   position: relative;
 }
@@ -142,7 +142,7 @@ html {
 }
 
 html, body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 button {
@@ -282,7 +282,7 @@ input[type="submit"] {
   text-transform: uppercase;
 }
 
-.form__group.has--error .form__group-message {
+.form__group--error .form__group-message {
   display: inline-block;
 }
 
@@ -773,10 +773,158 @@ input[type="submit"] {
   font-family: "Muller med";
 }
 
+.products__content {
+  margin-bottom: -5rem;
+}
+
 .products__item {
   box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.07);
-  width: 47.45%;
+  width: calc(50% - 2.5rem);
   max-width: 740px;
+  margin-bottom: 5rem;
+}
+
+.products__item-advantages {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin: 0 -1%;
+}
+
+.products__item-advantages.products__item--three {
+  justify-content: center;
+}
+
+.products__item-advantages.products__item--three .products__item-advantage {
+  justify-content: center;
+}
+
+.products__item-advantages.products__item--four {
+  justify-content: space-between;
+}
+
+.products__item-advantages.products__item--four .products__item-advantage:nth-of-type(1) {
+  justify-content: flex-start;
+}
+
+.products__item-advantages.products__item--four .products__item-advantage:nth-of-type(2), .products__item-advantages.products__item--four .products__item-advantage:nth-of-type(3) {
+  justify-content: center;
+}
+
+.products__item-advantages.products__item--four .products__item-advantage:nth-of-type(4) {
+  justify-content: flex-end;
+}
+
+.products__item-advantage {
+  font-size: .875em;
+  width: 23%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.products__item-advantage--key {
+  padding: 0;
+  margin: 0;
+}
+
+.products__item-advantage--val {
+  padding: 0;
+  margin: 0;
+  margin-top: .3rem;
+}
+
+.products__item-advantage-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  height: 2rem;
+}
+
+.products__item-advantage-icon svg {
+  height: 100%;
+  width: auto;
+}
+
+.products__item-col {
+  letter-spacing: 0.025em;
+  font-size: 0.9375em;
+}
+
+.products__item-col--key {
+  margin: 0;
+  padding: 0;
+  color: #434343;
+  margin-right: 2rem;
+}
+
+.products__item-col--val {
+  margin: 0;
+  padding: 0;
+  font-family: "Muller med";
+}
+
+.products__item-info {
+  padding: 3.75rem 0 2.5rem;
+  position: relative;
+}
+
+.products__item-info:after {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  left: 1.875rem;
+  right: 1.875rem;
+  position: absolute;
+  bottom: 0;
+  background-image: linear-gradient(to right, #e1e1e1 71%, rgba(225, 225, 225, 0) 0%);
+  background-position: bottom;
+  background-size: 13px 1px;
+  background-repeat: repeat-x;
+}
+
+.products__item-price--sale {
+  font-family: "Muller light";
+  color: #828282;
+  font-size: 0.8125em;
+  position: relative;
+}
+
+.products__item-price--sale:after {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -1px;
+  position: absolute;
+  background-color: #828282;
+}
+
+.products__item-prices {
+  position: absolute;
+  bottom: -1.40625rem;
+  line-height: 1;
+  color: #ffffff;
+  width: 15.3125rem;
+  padding: 0rem .7rem;
+  height: 2.8125rem;
+  left: 50%;
+  margin-left: -7.65625rem;
+  background-color: #303030;
+}
+
+.products__item-prices p {
+  padding: 0 5px;
+  margin: 0;
+}
+
+.products__item--gutters {
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+}
+
+.products__item-img {
+  position: relative;
 }
 
 .products__item-img img {
@@ -786,11 +934,12 @@ input[type="submit"] {
 }
 
 .products__item-title {
-  overflow: hidden;
   font-family: "Muller med";
-  color: inherit;
-  padding: 2rem 1.875rem;
+  color: #0c0c0c;
   margin: 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  height: 6.625rem;
   transition: .25s all ease-in;
   text-decoration: none;
   display: block;
@@ -800,4 +949,20 @@ input[type="submit"] {
 
 .products__item-title:hover {
   color: #ff2e3b;
+}
+
+.products__item-title p {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.request {
+  background-color: #f6f6f6;
+  padding: 5.3125rem 0;
+}
+
+.request__form {
+  margin-top: 4.6875rem;
 }
