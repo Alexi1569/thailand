@@ -490,7 +490,6 @@ body {
   font-size: 16px;
   font-family: "Muller reg", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 1000px;
 }
 
 select {
@@ -595,6 +594,24 @@ body .select2-selection__arrow b {
 .main,
 .footer {
   width: 100%;
+  overflow: hidden;
+}
+
+body .scrollbar-track {
+  background-color: rgba(48, 48, 48, 0.5);
+  cursor: pointer;
+}
+
+body .scrollbar-thumb {
+  background-color: #303030;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  width: 100%;
+}
+
+body .scrollbar-track-y {
+  width: 6px;
 }
 
 .hidden {
@@ -602,7 +619,8 @@ body .select2-selection__arrow b {
 }
 
 .page {
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   position: relative;
 }
 
@@ -623,7 +641,7 @@ html {
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 button {
@@ -806,8 +824,15 @@ input[type="submit"] {
 
 .btn {
   border: 0;
-  background-color: transparent;
-  font-family: sans-serif;
+  background-color: #ff2e3b;
+  font-family: "Muller med", Arial, sans-serif;
+  font-size: 0.6875rem;
+  text-align: center;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  padding: .8rem 3.3125rem .7rem;
+  text-transform: uppercase;
 }
 
 .form__group.has--error .form__group-message {
@@ -1142,7 +1167,7 @@ input[type="submit"] {
 .header__megamenu {
   position: absolute;
   left: 0;
-  min-width: 34.75rem;
+  right: 0;
   min-height: 15rem;
   z-index: -1;
   top: -webkit-calc(100% - 6px);
@@ -1389,6 +1414,32 @@ input[type="submit"] {
   min-height: 44.6875rem;
 }
 
+.caption {
+  margin: 0;
+  padding: 0;
+  font-family: "Muller bold";
+  letter-spacing: 0.001em;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+}
+
+.caption.caption--bg:before {
+  content: attr(data-caption);
+  position: absolute;
+  font-size: 1.58333333em;
+  z-index: -1;
+  color: #eef3f3;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: -3px;
+}
+
 .configurator__title {
   padding: 0;
   margin: 0;
@@ -1410,6 +1461,11 @@ input[type="submit"] {
   max-width: 300px;
 }
 
+.configurator__form .form__group.open > .select2-container {
+  bottom: 0 !important;
+  top: auto !important;
+}
+
 .configurator__form .form__group.open .select2-dropdown {
   opacity: 1 !important;
   visibility: visible !important;
@@ -1426,4 +1482,38 @@ input[type="submit"] {
 
 .configurator__form .form__group.active .select2-selection__rendered {
   font-family: "Muller med";
+}
+
+.products__item {
+  -webkit-box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.07);
+  width: 47.45%;
+  max-width: 740px;
+}
+
+.products__item-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.products__item-title {
+  overflow: hidden;
+  font-family: "Muller med";
+  color: inherit;
+  padding: 2rem 1.875rem;
+  margin: 0;
+  -webkit-transition: .25s all ease-in;
+  -o-transition: .25s all ease-in;
+  -moz-transition: .25s all ease-in;
+  transition: .25s all ease-in;
+  text-decoration: none;
+  display: block;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.products__item-title:hover {
+  color: #ff2e3b;
 }

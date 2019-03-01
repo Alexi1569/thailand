@@ -16,7 +16,6 @@ body
   font-size: 16px
   font-family: $reg, Arial, sans-serif
   -webkit-font-smoothing: antialiased
-  padding-bottom: 1000px
 
 select
   display: none
@@ -84,12 +83,25 @@ body
 .main,
 .footer
   width: 100%
+  overflow: hidden
+
+body
+  .scrollbar-track
+    background-color: rgba(#303030, .5)
+    cursor: pointer
+  .scrollbar-thumb
+    background-color: #303030
+    border-radius: 0
+    width: 100%
+  .scrollbar-track-y
+    width: 6px
 
 .hidden
   display: none !important
 
 .page
-  min-height: 100vh
+  height: 100vh
+  width: 100vw
   position: relative
 
 .main
@@ -100,7 +112,7 @@ html
   text-size-adjust: 100%
 
 html, body
-  overflow-x: hidden
+  overflow: hidden
 
 button
   cursor: pointer
@@ -197,8 +209,15 @@ input[type="submit"]
 
 .btn
   border: 0
-  background-color: transparent
-  font-family: sans-serif
+  background-color: $red
+  font-family: $med, Arial, sans-serif
+  font-size: 0.6875rem
+  text-align: center
+  line-height: 1
+  color: #ffffff
+  letter-spacing: 0.05em
+  padding: .8rem 3.3125rem .7rem
+  text-transform: uppercase
 
 .form
   &__group
@@ -401,7 +420,7 @@ input[type="submit"]
   &__megamenu
     position: absolute
     left: 0
-    min-width: 34.75rem
+    right: 0
     min-height: 15rem
     z-index: -1
     top: calc(100% - 6px)
@@ -550,6 +569,26 @@ input[type="submit"]
 .banner
   min-height: 44.6875rem
 
+.caption
+  margin: 0
+  padding: 0
+  font-family: $bold
+  letter-spacing: 0.001em
+  font-size: 1.5em
+  text-transform: uppercase
+  text-align: center
+  position: relative
+  &.caption--bg
+    &:before
+      content: attr(data-caption)
+      position: absolute
+      font-size: 1.58333333em
+      z-index: -1
+      color: #eef3f3
+      left: 50%
+      transform: translateX(-50%)
+      top: -3px
+
 .configurator
   &__title
     padding: 0
@@ -567,6 +606,9 @@ input[type="submit"]
       width: 23.8%
       max-width: 300px
       &.open
+        & > .select2-container
+          bottom: 0 !important
+          top: auto !important
         .select2-dropdown
           opacity: 1 !important
           visibility: visible !important
@@ -577,3 +619,26 @@ input[type="submit"]
           font-family: $med
 
 
+.products
+  &__item
+    box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.07)
+    width: 47.45%
+    max-width: 740px
+    &-img
+      img
+        width: 100%
+        height: auto
+        display: block
+    &-title
+      overflow: hidden
+      font-family: $med
+      color: inherit
+      padding: 2rem 1.875rem
+      margin: 0
+      transition: .25s all ease-in
+      text-decoration: none
+      display: block
+      line-height: 1.5
+      text-transform: uppercase
+      &:hover
+        color: $red
