@@ -13,7 +13,72 @@ html(lang='en')
       block main
 
       footer.footer
-
+        .container
+          .footer__top.flex.jc-sb.ai-s
+            .footer__left
+              a(href="#").logo.footer__logo
+                img(src="./img/logo.png" alt="title")
+              .footer__info-item
+                p.footer__info--key Телефон:
+                a(href="tel: +66(84)287-84-48").footer__info--val +66(84)287-84-48
+              .footer__info-item
+                p.footer__info--key E-mail:
+                a(href="mailto: info@privetphuket.com").footer__info--val info@privetphuket.com
+            .footer__menu.inline-flex
+              .footer__menu-col
+                p.footer__menu-title О PrivetPhuket
+                nav.footer__nav
+                  ul
+                    li
+                      a(href="#") О нас
+                    li
+                      a(href="#") Карта
+                    li
+                      a(href="#") Блог
+                    li
+                      a(href="#") Отзывы
+                    li
+                      a(href="#") Контакты
+              .footer__menu-col
+                p.footer__menu-title АРЕНДА
+                nav.footer__nav
+                  ul
+                    li
+                      a(href="#") Апартаменты
+                    li
+                      a(href="#") Виллы
+                    li
+                      a(href="#") Бунгало
+                    li
+                      a(href="#") Квартиры
+                    li
+                      a(href="#") Дома
+              .footer__menu-col
+                p.footer__menu-title Продажа
+                nav.footer__nav
+                  ul
+                    li
+                      a(href="#") Апартаменты
+                    li
+                      a(href="#") Виллы
+                    li
+                      a(href="#") Бунгало
+                    li
+                      a(href="#") Квартиры
+                    li
+                      a(href="#") Дома
+            .footer__right
+              li
+                h2 ПОДПИСАТЬСЯ
+                div
+                  form(action="#")
+                    p
+                      input(type="text" placeholder="Введите свою почту")
+                    input(type="submit" value="ОТПРАВИТЬ")
+          .footer__bottom.flex.jc-sb.ai-b
+            p.footer__copy © Privet Phuket - агентство недвижимости на Пхукете
+            a(href="#" target="_blank" rel="nofollow").footer__develop Сознание сайта и поддержка -
+              b  ART MARKS
 
 
 
