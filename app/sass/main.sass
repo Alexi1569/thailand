@@ -31,18 +31,18 @@ body
     font-size: .875em
   .select2-dropdown
     font-size: 0.8125em
-    z-index: -1
+    //z-index: -1
     border: 0
-    box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.09)
-    &:before
-      content: ''
-      display: inline-block
-      position: absolute
-      left: -25%
-      right: -25%
-      background-color: #ffffff
-      height: 25px
-      bottom: 100%
+    box-shadow: 0px 10px 12px 2px rgba(0, 0, 0, 0.09)
+    //&:before
+    //  content: ''
+    //  display: inline-block
+    //  position: absolute
+    //  left: -25%
+    //  right: -25%
+    //  background-color: #ffffff
+    //  height: 25px
+    //  bottom: 100%
   .select2-selection
     border-radius: 0 !important
     border: 0 !important
@@ -99,7 +99,7 @@ body
   display: none !important
 
 .page
-  min-height: 100vh
+  height: 100vh
   width: 100%
   position: relative
 
@@ -150,6 +150,43 @@ textarea
 
 input[type="submit"]
   cursor: pointer
+
+.modal
+  &-close
+    position: absolute
+    right: 16px
+    top: 16px
+    width: 20px
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    line-height: 1
+    height: 20px
+    svg
+      fill: #7a7a7a
+      width: 12px
+      height: 12px
+  &.callback-modal
+    min-width: 30.0625rem
+    text-align: center
+    padding: 5.625rem 7.1875rem
+    input
+      text-align: center
+    .modal__form-btn
+      margin-top: 2.25rem
+    .form__group
+      margin-bottom: 1.875rem
+      &:last-of-type
+        margin-bottom: 0
+    .modal__title
+      font-family: $bold
+      text-transform: uppercase
+      color: #1a1a1a
+    .modal__form
+      margin-top: 2.25rem
+  &__form
+    position: relative
+    z-index: 0
 
 .container
   width: 100%
@@ -213,7 +250,7 @@ input[type="submit"]
   border: 0
   background-color: $red
   font-family: $med, Arial, sans-serif
-  font-size: 0.6875rem
+  font-size: 0.6875em
   text-align: center
   line-height: 1
   color: #ffffff
@@ -282,8 +319,8 @@ input[type="submit"]
       margin-right: .625rem
 
   a
-    width: 1rem
-    height: 1rem
+    width: 16px
+    height: 16px
     display: block
     position: relative
     overflow: hidden
@@ -345,8 +382,8 @@ input[type="submit"]
       content: ''
       display: inline-block
       position: absolute
-      left: -25%
-      right: -25%
+      left: 0%
+      right: 0%
       background-color: #ffffff
       height: 25px
       bottom: 100%
@@ -390,11 +427,164 @@ input[type="submit"]
     height: auto
     display: block
 
+.mobile-menu
+  position: fixed
+  display: none
+  height: 100%
+  width: auto
+  transform: translateY(100%)
+  opacity: 0
+  right: 0
+  background-color: rgba(#303030, .85)
+  top: 0
+  z-index: 2
+  visibility: hidden
+  transition: .55s all ease-in
+  color: #ffffff
+  &--p
+    padding-right: 3rem
+    padding-left: 3rem
+  &__logo
+    border-bottom: 1px solid rgba(#fff, .4)
+    padding-bottom: 2.6rem
+  &__info
+    padding-top: 2rem
+    border-top: 1px solid rgba(#fff, .4)
+  &__socials
+    a
+      svg
+        fill: $red
+  &__inner
+    padding-top: 2.6rem
+    padding-bottom: 2rem
+    height: 100%
+    width: 100%
+  &__nav
+    flex: 1
+    overflow-y: auto
+    width: 100%
+    margin: 1.5rem 0
+    padding-right: 3rem
+    text-transform: uppercase
+    ul
+      list-style-type: none
+      margin: 0
+      padding: 0
+      font-family: $med
+      & > li
+        display: flex
+        justify-content: space-between
+        align-items: center
+        flex-wrap: wrap
+        padding-bottom: 1.2rem
+        margin-top: 1.2rem
+        border-bottom: 1px solid rgba(#fff, .3)
+        &:last-of-type
+          margin-bottom: 0
+          padding-bottom: 0
+          border-bottom: 0
+        a
+          flex: 1
+          padding-right: 16px
+        svg
+          transform: rotate(-90deg)
+          width: 14px
+          margin-left: 8px
+          cursor: pointer
+          height: 14px
+          transition: .25s all ease-in
+          fill: #fff
+          &.active
+            transform: rotate(-270deg)
+      &.mobile-menu__nav-inner
+        max-height: 0
+        width: 100%
+        overflow: hidden
+        font-size: .9em
+        text-transform: none
+        font-family: $reg
+        transition: .5s all ease-in
+        li
+          border-bottom: none
+          margin-bottom: .4rem
+          padding-bottom: 0
+          margin-top: 0
+          &:first-of-type
+            margin-top: .5rem
+          &:last-of-type
+            margin-bottom: 1rem
+  a
+    color: inherit
+    text-decoration: none
+  &.active
+    opacity: 1
+    visibility: visible
+    transform: translateY(0%)
+
+.phone
+  display: block
+
+.callback-btn
+  margin-top: .35rem
+  line-height: .8
+  display: inline-block
+  border-bottom: 1px solid lighten(#272727, 20%)
+
+.contacts-block
+  font-size: .75em
+  a
+    text-decoration: none
+    color: inherit
+    transition: .25s all linear
+
+    &:hover
+      color: $red
+
 .header
+  &__mobile
+    display: none
+    background-color: transparent
+    cursor: pointer
+    border: 0
+    line-height: 1
+    width: 26px
+    z-index: 3
+    height: 28px
+    margin-left: 2rem
+    position: relative
+    &.active
+      .header__mobile-line
+        background-color: #ffffff
+        &:nth-of-type(1)
+          transform: rotate(45deg)
+          top: 11px
+        &:nth-of-type(3)
+          transform: rotate(-45deg)
+          top: 11px
+        &:nth-of-type(2)
+          width: 0
+          opacity: 0
+
+    &-line
+      position: absolute
+      left: 0
+      background-color: $red
+      height: 2px
+      border-radius: 10px
+      transition: .3s all ease-in
+      &:nth-of-type(1)
+        top: 3px
+        width: 100%
+        transition-delay: .15s
+      &:nth-of-type(2)
+        top: 11px
+        width: 70%
+      &:nth-of-type(3)
+        top: 19px
+        transition-delay: .2s
+        width: 100%
   &__top
     height: 6.25rem
-    position: relative
-    z-index: 1
     color: #272727
   &__search
     top: -1px
@@ -408,10 +598,13 @@ input[type="submit"]
     input
       right: 2.1875rem
       position: absolute
+      z-index: 1
       left: 0
       height: auto
+      top: 50%
+      margin-top: -19px
       padding-top: 6px
-      width: auto
+      width: calc(100% - 2.1875rem)
       transform: scaleX(0) translateX(-20%)
       transition: .5s transform ease-in-out, .2s opacity ease-in .15s, .2s visibility ease-in .15s
       opacity: 0
@@ -444,21 +637,19 @@ input[type="submit"]
 
   &__left
     padding-top: 6px
-    border: 1px solid #000
 
   &__right
     padding-top: 6px
-    border: 1px solid #000
     position: relative
     padding-left: 1.875rem
-
   &__currency
     margin-right: 1.125rem
-    margin-left: 15.88%
-
+    position: relative
+    z-index: 1
   &__languages
     margin-right: 2.8125rem
-
+    position: relative
+    z-index: 1
   &__megamenu
     position: absolute
     left: 0
@@ -488,7 +679,9 @@ input[type="submit"]
 
   &__nav
     font-size: 0.8125em
-
+    margin-right: 11.5625rem
+    position: relative
+    z-index: 1
     svg
       width: 9px
       height: 9px
@@ -572,14 +765,6 @@ input[type="submit"]
       color: inherit
       transition: .25s all ease-in
 
-  &__phone
-    display: block
-
-  &__callback
-    margin-top: .35rem
-    line-height: .8
-    display: inline-block
-    border-bottom: 1px solid lighten(#272727, 20%)
 
   &__phone
     white-space: nowrap
@@ -594,17 +779,8 @@ input[type="submit"]
     margin-right: 3.75rem
 
   &__contacts
-    font-size: .75em
     position: relative
     top: 4px
-
-    a
-      text-decoration: none
-      color: inherit
-      transition: .25s all linear
-
-      &:hover
-        color: $red
 
 .banner
   min-height: 44.6875rem
@@ -623,6 +799,7 @@ input[type="submit"]
       content: attr(data-caption)
       position: absolute
       font-size: 1.58333333em
+      white-space: nowrap
       z-index: -1
       color: #eef3f3
       left: 50%
@@ -669,14 +846,40 @@ input[type="submit"]
     width: calc(50% - 2.5rem)
     max-width: 740px
     margin-bottom: 5rem
-    //opacity: 0
-    //transform: translateY(10%)
-    //transition: .9s opacity cubic-bezier(.06,1.07,.96,.98), 1s transform cubic-bezier(.06,1.07,.96,.98)
-    //&:nth-child(even)
-    //  transition-delay: .15s
-    //&.visible
-    //  opacity: 1
-    //  transform: translateY(0%)
+    opacity: 0
+    transform: translateY(10%)
+    transition: .9s opacity cubic-bezier(.06,1.07,.96,.98), 1s transform cubic-bezier(.06,1.07,.96,.98)
+    &:nth-child(even)
+      transition-delay: .15s
+    &.visible
+      opacity: 1
+      transform: translateY(0%)
+    &-sale
+      display: inline-block
+      position: absolute
+      width: 2.1875rem
+      top: 1.5625rem
+      right: 1.5625rem
+      height: 2.1875rem
+      svg
+        max-height: 100%
+        max-width: 100%
+        fill: #ff2e3b
+    &-lock
+      position: absolute
+      left: 0
+      right: 0
+      width: 100%
+      height: 100%
+      line-height: 1
+      background-color: rgba(#000, .6)
+      display: flex
+      align-items: center
+      justify-content: center
+      svg
+        fill: #fff
+        width: 2.1875rem
+        height: 2.1875rem
     &-advantages
       padding-top: 2rem
       padding-bottom: 2rem
@@ -720,6 +923,7 @@ input[type="submit"]
     &-col
       letter-spacing: 0.025em
       font-size: 0.9375em
+      margin: 0 1rem
       &--key
         margin: 0
         padding: 0
@@ -732,6 +936,7 @@ input[type="submit"]
     &-info
       padding: 3.75rem 0 2.5rem
       position: relative
+      margin: 0 -1rem
       &:after
         content: ''
         display: inline-block
@@ -762,14 +967,14 @@ input[type="submit"]
           background-color: #828282
     &-prices
       position: absolute
-      bottom: -1.40625rem
+      bottom: -22px
       line-height: 1
       color: #ffffff
-      min-width: 15.3125rem
+      min-width: 246px
       padding: 0rem .7rem
-      height: 2.8125rem
+      height: 44px
       left: 50%
-      margin-left: -7.65625rem
+      margin-left: -123px
       background-color: #303030
       p
         padding: 0 5px
@@ -812,6 +1017,8 @@ input[type="submit"]
     text-transform: uppercase
     font-family: $extra
     letter-spacing: 0.025em
+    padding: 0
+    margin: 0
     line-height: 1.375
   &__form
     position: relative
@@ -921,10 +1128,10 @@ input[type="submit"]
   &__img
     width: 58.33%
     height: 41.5625rem
-    background-position: 50% 50%
-    background-size: cover
-    background-repeat: no-repeat
     &-inner
+      background-position: 50% 50%
+      background-size: cover
+      background-repeat: no-repeat
       height: 100%
       transform: translateX(35%)
       width: 25%
@@ -1085,11 +1292,28 @@ input[type="submit"]
     margin-top: 4.0625rem
 
 
+@media screen and (max-width: 1450px)
+  .header__nav
+    margin-right: 9rem
+  .header__logo
+    margin-right: 2.6rem
+  .header__socials
+    margin-right: 2.4rem
+  .reviews__img
+    width: 55%
+  .reviews__info
+    padding-top: 2.3rem
+    margin-left: 5%
+  .reviews__text
+    margin-top: 1rem
+  .reviews__controls
+    left: calc(55% + 5%)
+
 @media screen and (max-width: 1300px)
   html
     font-size: 15px
   .header__nav
-    padding-right: 10%
+    margin-right: 6rem
   .header__logo
     margin-right: 2.4rem
   .header__socials
@@ -1098,3 +1322,323 @@ input[type="submit"]
     margin-right: 1.9rem
   .banner
     min-height: 36rem
+  .news__item
+    min-height: 36rem
+    padding: 2.4rem
+
+@media screen and (max-width: 1250px)
+  .request__form .form__group.form__group--textarea
+    width: 34%
+  .request__form .form__group
+    width: 18%
+
+@media screen and (max-width: 1199px)
+  html
+    font-size: 14px
+  .footer__menu
+    padding: 0 16px
+  .footer
+    margin-top: 6.3rem
+  .news__item
+    min-height: 32rem
+    padding: 1.7rem
+  .reviews__img
+    width: 48%
+  .reviews__info
+    padding-top: 1.2rem
+    margin-left: 3.5%
+  .reviews__controls
+    left: calc(48% + 3.5%)
+  .products__item-advantage
+    font-size: .75em
+    &-icon
+      height: 1.6rem
+      margin-right: 1.1rem
+  .products__item-title
+    font-size: .9em
+  .caption
+    font-size: 1.4em
+  .caption.caption--bg::before
+    font-size: 1.4em
+    top: 0
+  .header__nav
+    margin-right: 4rem
+  .header__logo
+    margin-right: 2rem
+  .configurator__form
+    width: 90%
+  .header__socials
+    margin-right: 1.8rem
+  .header__nav ul li:not(:last-of-type)
+    margin-right: 1.55rem
+  .banner
+    min-height: 30rem
+  .pt
+    padding-top: 7.5rem !important
+  .pb
+    padding-bottom: 7.5rem !important
+  .mt
+    margin-top: 3.25rem !important
+
+@media screen and (max-width: 1050px)
+  .header__socials
+    display: none
+  .request__form-inputs
+    width: 100%
+    padding-right: 0
+    flex-basis: 100%
+  .request__form-btn
+    margin-top: 2.2rem
+
+@media screen and (max-width: 991px)
+  html
+    font-size: 13px
+  .header__search input
+    right: 6.2rem
+  .mobile-menu
+    display: block
+  .header__search
+    input
+      left: auto
+      width: 470px
+  .footer
+    margin-top: 5.5rem
+  .footer__menu
+    display: none
+  .footer__left
+    margin-right: 0
+  .footer__right
+    margin-left: 0
+    margin-top: 3rem
+  .footer__logo
+    margin-left: auto
+    margin-right: auto
+  .footer__info-item
+    margin-top: 1.2rem
+    margin-bottom: 0
+  .footer__left,
+  .footer__right
+    width: 100%
+  .footer__top
+    text-align: center
+    justify-content: center
+    flex-direction: column
+    align-items: flex-start
+    width: 40%
+    margin-left: auto
+    margin-right: auto
+  .reviews__img
+    width: 42%
+  .reviews__info
+    padding-top: 0
+    margin-left: 4%
+  .reviews__controls
+    left: calc(42% + 4%)
+  .request__form
+    margin-top: 3.5rem
+  .products__item-col
+    font-size: .875em
+  .products__item
+    margin-bottom: 3rem
+  .products__content
+    margin-bottom: -3rem
+  .products__item-col--key
+    margin-right: 1.6rem
+
+  .products__item-title
+    line-height: 1.4
+  .products__item
+    width: calc(50% - 1.25rem)
+  .configurator__form
+    width: 100%
+  .header__nav
+    display: none
+  .header__mobile
+    display: inline-block
+  .pt
+    padding-top: 6.2rem !important
+  .pb
+    padding-bottom: 6.2rem !important
+  .mt
+    margin-top: 2.8rem !important
+
+@media screen and (max-width: 950px)
+  .products__item-col
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-start
+  .products__item-info
+    justify-content: space-around
+  //.products__item-advantages
+  //  flex-wrap: wrap
+  //  margin-left: -2.5%
+  //  margin-right: -2.5%
+  .products__item-advantage
+    flex-direction: column
+    text-align: center
+    align-items: center
+    justify-content: flex-start
+  .products__item-advantage-icon
+    margin-right: 0
+  .products__item-advantage-details
+    margin-top: .75rem
+  .products__item-advantage--val
+    margin-top: .1rem
+
+
+@media screen and (max-width: 850px)
+  .configurator__form .form__group
+    width: 22%
+  .request__form .form__group
+    width: 23%
+    &.form__group--textarea
+      width: 23%
+  .header__search
+    input
+      width: calc(100vw - 30px)
+      margin-top: 0
+      padding: 10px 15px
+      box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.09)
+      top: calc(100% - 6px)
+      right: 0
+
+
+@media screen and (max-width: 767px)
+  .pt
+    padding-top: 5rem !important
+  .pb
+    padding-bottom: 5rem !important
+  .mt
+    margin-top: 2.4rem !important
+  .reviews__img
+    width: 365px
+    height: 267px
+  .footer
+    margin-top: 4.8rem
+  .reviews__numbers
+    display: none
+  .reviews__controls
+    left: 0
+    width: 100%
+    position: initial
+    justify-content: center
+  .reviews__text
+    padding-bottom: 1rem
+  .reviews__item
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: flex-start
+  .reviews__info
+    margin-left: 0
+    margin-top: 2rem
+    flex-basis: 100%
+    width: 100%
+  .request__form
+    margin-top: 3rem
+  .request__title
+    font-size: 1.3em
+  .request__form .form__group
+    width: 32%
+    &.form__group--textarea
+      width: 100%
+      margin-top: 2.2rem
+  .configurator__form
+    flex-wrap: wrap
+    margin-bottom: -2rem
+    align-items: center
+    .form__group
+      margin-bottom: 2rem
+      width: 45%
+      max-width: none
+  .configurator__btn
+    width: 45%
+    margin-bottom: 2rem
+
+@media screen and (max-width: 650px)
+  .banner
+    min-height: 24rem
+  .footer__top
+    width: 70%
+  .products__content
+    width: 70%
+    margin-left: auto
+    margin-right: auto
+  .products__item
+    width: 100%
+  .products__item-advantages.products__item--three
+    justify-content: space-between
+
+@media screen and (max-width: 500px)
+  .header__contacts
+    display: none
+  .request__form .form__group
+    width: 100%
+    margin-bottom: 2.2rem
+    &.form__group--textarea
+      margin-top: 0
+      margin-bottom: 0
+  .header__logo
+    margin-right: 0
+  .header__languages
+    margin-right: 2.2rem
+
+  .configurator__form
+    margin-bottom: 0
+    .form__group
+      margin-bottom: 2.4rem
+      width: 100%
+  .configurator__btn
+    width: auto
+    margin-left: auto
+    margin-right: auto
+    margin-bottom: 0
+
+@media screen and (max-width: 480px)
+  .products__content
+    width: 90%
+
+@media screen and (max-width: 450px)
+  .pt
+    padding-top: 4.2rem !important
+  .pb
+    padding-bottom: 4.2rem !important
+  .mt
+    margin-top: 2.1em !important
+  .modal.callback-modal
+    min-width: auto
+    width: 97%
+    padding-left: 18%
+    padding-right: 18%
+  .mobile-menu
+    width: 100%
+  .footer__bottom
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    text-align: center
+    margin-left: 0
+    margin-right: 0
+  .footer__copy,
+  .footer__develop
+    width: 100%
+    margin-left: 0
+    margin-right: 0
+  .footer__develop
+    margin-top: 1rem
+  .reviews__img
+    width: 100%
+
+  .caption
+    &.caption--bg
+      &:before
+        font-size: 1.3em
+
+
+@media screen and (max-width: 400px)
+  .footer__top
+    width: 100%
+
+
+@media screen and (max-width: 380px)
+  .products__content
+    width: 100%

@@ -11,9 +11,9 @@
           li
             a(href="#" target="_blank")
               <svg><use xlink:href="#instagram-icon"/></svg>
-        .header__contacts
-          a(href="tel:+66 (098) 654-76-89").header__phone +66 (098) 654-76-89
-          a(href="#" data-fancybox-href="#callback-modal" data-fancybox).header__callback Перезвонить?
+        .header__contacts.contacts-block
+          a(href="tel:+66 (098) 654-76-89").header__phone.phone +66 (098) 654-76-89
+          a(href="#" data-src="#callback-modal" data-fancybox).header__callback.callback-btn Перезвонить?
       .header__right.inline-flex.jc-fe.ai-c
         nav.header__nav
           ul.flex
@@ -80,4 +80,8 @@
               span.header__search-icon
                 <svg><use xlink:href="#search-icon"/></svg>
               input(type="search" placeholder="Что будем искать?")
+        button.header__mobile#header-mobile
+          span.header__mobile-line
+          span.header__mobile-line
+          span.header__mobile-line
 

@@ -82,15 +82,86 @@ html(lang='en')
 
 
 
+    .modal.callback-modal#callback-modal(style="display: none")
+      p.modal__title обратный звонок
+      form.modal__form
+        .form__group
+          .form__group-input
+            input(type="text" class="only-text-input" placeholder="Имя*" required )
+          span.form__group-message Ошибка
+        .form__group
+          .form__group-input
+            input(type="tel" class="only-numbers-input" placeholder="Введите ваш номер*" required )
+          span.form__group-message Ошибка
+        button.btn.modal__form-btn Жду звонка
 
-    nav#mobile-menu.mobile-menu.hidden
-      ul
+    #mobile-menu.mobile-menu
+      .mobile-menu__inner.flex.jc-sb.fd-c
+        a(href="#").logo.mobile-menu__logo.mobile-menu--p
+          img(src="./img/logo--white.png" alt="test")
+        nav.mobile-menu__nav.mobile-menu--p
+          ul
+            li
+              a(href="#") Аренда
+              <svg><use xlink:href="#arrow-icon"/></svg>
+              ul.mobile-menu__nav-inner
+                li
+                  a(href="#") Апартаменты
+                li
+                  a(href="#") Квартиры
+                li
+                  a(href="#") Виллы
+                li
+                  a(href="#") Дома
+                li
+                  a(href="#") Бунгало
+
+            li
+              a(href="#") Продажа
+              <svg><use xlink:href="#arrow-icon"/></svg>
+              ul.mobile-menu__nav-inner
+                li
+                  a(href="#") Апартаменты
+                li
+                  a(href="#") Квартиры
+                li
+                  a(href="#") Виллы
+                li
+                  a(href="#") Дома
+
+            li
+              a(href="#") Пляжи
+              <svg><use xlink:href="#arrow-icon"/></svg>
+              ul.mobile-menu__nav-inner
+                li
+                  a(href="#") Апартаменты
+                li
+                  a(href="#") Квартиры
+            li
+              a(href="#") Карта
+            li
+              a(href="#") Блог
+            li
+              a(href="#") Контакты
+        .mobile-menu__info.flex.jc-sb.ai-c.mobile-menu--p
+          ul.socials.mobile-menu__socials.inline-flex
+            li
+              a(href="#" target="_blank")
+                <svg><use xlink:href="#facebook-icon"/></svg>
+            li
+              a(href="#" target="_blank")
+                <svg><use xlink:href="#instagram-icon"/></svg>
+          .mobile-menu__contacts.contacts-block
+            a(href="tel:+66 (098) 654-76-89").phone +66 (098) 654-76-89
+            a(href="#" data-src="#callback-modal" data-fancybox).callback-btn Перезвонить?
 
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="hidden">
     <symbol id="instagram-icon" viewBox="0 0 68 68"><path d="M3.1,0C1.4,0,0,1.4,0,3.1v61.7c0,1.7,1.4,3.1,3.1,3.1h61.7c1.7,0,3.1-1.4,3.1-3.1V3.1c0-1.7-1.4-3.1-3.1-3.1H3.1z"/><circle cx="54" cy="14" r="4" fill="#fff" /><path  fill="#fff" d="M34.2,51.7c-9.6,0-17.4-7.8-17.4-17.4s7.8-17.4,17.4-17.4s17.4,7.8,17.4,17.4S43.8,51.7,34.2,51.7z M34.2,21.8 c-6.9,0-12.4,5.6-12.4,12.4s5.6,12.4,12.4,12.4c6.9,0,12.4-5.6,12.4-12.4S41.1,21.8,34.2,21.8z"/></symbol>
     <symbol id="facebook-icon" viewBox="0 0 60.7 60.7"><path d="M57.4,0h-54C1.5,0,0,1.5,0,3.4v54c0,1.9,1.5,3.4,3.4,3.4h29.1V37.2h-7.9V28h7.9v-6.8c0-7.8,4.8-12.1,11.8-12.1 c3.4,0,6.2,0.3,7.1,0.4v8.2l-4.9,0c-3.8,0-4.5,1.8-4.5,4.5V28H51l-1.2,9.2h-7.9v23.5h15.5c1.9,0,3.4-1.5,3.4-3.4v-54 C60.7,1.5,59.2,0,57.4,0z"/></symbol>
     <symbol id="search-icon" viewBox="0 0 72.1 72.1"><path d="M70.9,65.3L57.4,51.7c10.9-14,8.3-34.1-5.7-45s-34.1-8.3-45,5.7s-8.3,34.1,5.7,45c11.6,9,27.8,9,39.3,0l13.6,13.6 c1.6,1.6,4.1,1.6,5.7,0S72.5,66.8,70.9,65.3z M32.1,56.1c-13.3,0-24-10.7-24-24s10.7-24,24-24s24,10.7,24,24S45.4,56.1,32.1,56.1z"/></symbol>
     <symbol id="arrow-icon" viewBox="0 0 13.1 24"><path d="M13.1,0.9V0.8C13,0.3,12.4-0.1,11.9,0c-0.2,0-0.4,0.1-0.6,0.3l-11,11c-0.4,0.4-0.4,1,0,1.4l0,0l11,11c0.4,0.4,1,0.4,1.4,0 c0.4-0.4,0.4-1,0-1.4L2.5,12L12.8,1.8C13,1.6,13.1,1.3,13.1,0.9z"/></symbol>
+    <symbol id="fire-icon" viewBox="0 0 62 83.2"><path d="M22.4 73c1.7-4.3 4.9-7.4 8.9-9.1.5-.2 1 .2.9.8-2 7.2 1.2 14.8 7.7 18.5C52.6 79.4 62 67.5 62 53.4c0-4.8-3.3-11.2-7.8-18.6-.2-.4-.8-.2-.8.2-.3 4.6-2.9 16.3-7 13.2-.3-.2-.4-.6-.4-1l.2-.9c2-10-5-17-10-26-4-7.3-.9-16.5.4-19.8.1-.3-.3-.7-.6-.4-16.8 12.3-19.7 20.7-18.9 26.3.8 5.3 5 8.8 4 15-.5 3.4-2.5 6.3-4.7 8.5-.2.2-.7.3-1 .3-3.7-.9-6.5-8.7-7.6-12.8-.2-.9-1.4-1-1.8-.2-3.5 6.2-6 12.1-6 16.2C0 67.3 9.2 79.1 21.8 83c-.8-3.2-.7-6.7.6-10z"/></symbol>
+    <symbol id="lock-icon" viewBox="0 0 71 100"><path d="M65.5 45V30c0-16.5-13.5-30-30-30s-30 13.5-30 30v15H0v55h71V45h-5.5zm-52-15c0-12.1 9.9-22 22-22s22 9.9 22 22v15h-44V30z"/></symbol>
     </svg>
 
     script(src='js/jquery-3.3.1.min.js')
