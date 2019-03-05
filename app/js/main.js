@@ -121,6 +121,7 @@ jQuery(document).ready(function ($) {
     callback: function(data, i) {
       var propChanged = data.props[i];
       var newValue = data.vals[i];
+
       var el = this;
       var el$ = $(this);
 
