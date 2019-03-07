@@ -5,11 +5,11 @@ jQuery(document).ready(function ($) {
   var windowWidth = $(window).width();
   var styledSelect = $('.styled-select');
   window.scrollTopOffset = 0;
-  var Scrollbar = window.Scrollbar;
-  var scrollbar = Scrollbar.init(document.querySelector('#page'), {
-    damping: .025,
-    alwaysShowTracks: true
-  });
+  var Scrollbar = window.Scrollbar; // var scrollbar = Scrollbar.init(document.querySelector('#page'), {
+  //   damping: .025,
+  //   alwaysShowTracks: true
+  // });
+
   $.fancybox.defaults.hideScrollbar = false;
   $.fancybox.defaults.touch = false;
   $.fancybox.defaults.btnTpl.smallBtn = '<span data-fancybox-close class="modal-close">' + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.642 15.642"><path fill-rule="evenodd" d="M8.882 7.821l6.541-6.541A.75.75 0 1 0 14.362.219L7.821 6.76 1.28.22A.75.75 0 1 0 .219 1.281L6.76 7.822l-6.54 6.54a.75.75 0 0 0 1.06 1.061l6.541-6.541 6.541 6.541a.75.75 0 1 0 1.06-1.061l-6.54-6.541z"/></svg>' + '</span>';
@@ -250,5 +250,59 @@ jQuery(document).ready(function ($) {
       $(this).toggleClass('active');
       $('#mobile-menu').toggleClass('active');
     });
+  })();
+
+  (function initFilter() {
+    var $rows = $('.jc-check-options');
+    $rows.each(function () {
+      var $wrapper = $(this).find('.catalog__filter-options');
+      var $options = $(this).find('.catalog__filter-option');
+      var $btn = $(this).find('.catalog__filter-more');
+      var height = 0;
+
+      if ($options.length > 5) {
+        $btn.css({
+          'display': 'inline-flex'
+        });
+
+        for (var i = 0; i < 5; i++) {
+          if (i !== 4) {
+            height += $($options[i]).outerHeight(true);
+          } else {
+            height += $($options[i]).outerHeight();
+          }
+        }
+
+        $wrapper.css({
+          'max-height': "".concat(height, "px")
+        });
+        $btn.click(function (e) {
+          e.preventDefault();
+          $(this).closest('.catalog__filter-row').toggleClass('opened');
+
+          if ($wrapper[0].style.maxHeight !== 'none') {
+            $wrapper[0].style.maxHeight = 'none';
+            $(this).find('span').text('Скрыть все');
+          } else {
+            $wrapper[0].style.maxHeight = "".concat(height, "px");
+            $(this).find('span').text('Показать все');
+          }
+        });
+      }
+    });
+
+    if (windowWidth < 992) {
+      var $filterOpen = $('#js-filter-open');
+      var $filterClose = $('#js-filter-close');
+      $filterOpen.click(function (e) {
+        $(this).addClass('active');
+        $filterClose.addClass('active');
+        $('.catalog__filter').addClass('active');
+      });
+      $filterClose.click(function (e) {
+        $(this).removeClass('active');
+        $('.catalog__filter').removeClass('active');
+      });
+    }
   })();
 });

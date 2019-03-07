@@ -7,10 +7,10 @@ jQuery(document).ready(function ($) {
 
   var Scrollbar = window.Scrollbar;
 
-  var scrollbar = Scrollbar.init(document.querySelector('#page'), {
-    damping: .025,
-    alwaysShowTracks: true
-  });
+  // var scrollbar = Scrollbar.init(document.querySelector('#page'), {
+  //   damping: .025,
+  //   alwaysShowTracks: true
+  // });
 
   $.fancybox.defaults.hideScrollbar = false;
   $.fancybox.defaults.touch = false;
@@ -270,6 +270,64 @@ jQuery(document).ready(function ($) {
       $(this).toggleClass('active');
       $('#mobile-menu').toggleClass('active');
     });
+  })();
+
+  (function initFilter() {
+    var $rows = $('.jc-check-options');
+
+    $rows.each(function() {
+      var $wrapper = $(this).find('.catalog__filter-options');
+      var $options = $(this).find('.catalog__filter-option');
+      var $btn = $(this).find('.catalog__filter-more');
+      var height = 0;
+
+      if ($options.length > 5) {
+        $btn.css({
+          'display': 'inline-flex'
+        })
+        for (let i = 0; i < 5; i++) {
+
+          if (i !== 4) {
+            height += $($options[i]).outerHeight(true);
+          } else {
+            height += $($options[i]).outerHeight();
+          }
+        }
+        $wrapper.css({
+          'max-height': `${height}px`
+        });
+
+        $btn.click(function(e) {
+          e.preventDefault();
+
+          $(this).closest('.catalog__filter-row').toggleClass('opened');
+
+          if ($wrapper[0].style.maxHeight !== 'none') {
+            $wrapper[0].style.maxHeight = 'none';
+            $(this).find('span').text('Скрыть все');
+          } else {
+            $wrapper[0].style.maxHeight = `${height}px`;
+            $(this).find('span').text('Показать все');
+          }
+        });
+      }
+    });
+
+    if (windowWidth < 992) {
+      var $filterOpen = $('#js-filter-open');
+      var $filterClose = $('#js-filter-close');
+
+      $filterOpen.click(function(e) {
+        $(this).addClass('active');
+        $filterClose.addClass('active');
+        $('.catalog__filter').addClass('active');
+      });
+
+      $filterClose.click(function(e) {
+        $(this).removeClass('active');
+        $('.catalog__filter').removeClass('active');
+      });
+    }
   })();
 
 });

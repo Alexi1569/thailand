@@ -12,6 +12,21 @@ $red: #ff2e3b
   &:focus
     outline: none
 
+h1, h2, h3, b, strong
+  font-weight: normal
+  font-family: $bold
+  text-transform: uppercase
+
+h1
+  letter-spacing: 0.001em
+  font-size: 1.875em
+
+h2
+  font-size: 1.35em
+
+h3
+  font-size: 1em
+
 body
   font-size: 16px
   font-family: $reg, Arial, sans-serif
@@ -99,14 +114,113 @@ body
   display: none !important
 
 .page
-  height: 100vh
+  min-height: 100vh
   width: 100%
   position: relative
 
 .main
   flex: 1
-  width: 100vw
+  width: 100%
   overflow: hidden
+
+.p-contacts
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  background-size: cover
+  overflow: hidden
+  &__form
+    text-align: center
+    position: relative
+    z-index: 0
+    padding: 3rem 0 2.5rem
+    &-btn
+      margin: 3rem auto 0
+      &.btn
+        padding-left: 4.875rem
+        padding-right: 4.875rem
+    &-title
+      padding: 0
+      margin: 0
+      text-transform: uppercase
+      letter-spacing: 0.025em
+      font-family: $bold
+      color: #0e0e0e
+      font-size: 1.375em
+      text-align: center
+    &-inputs
+      margin-bottom: -1.5rem
+      margin-top: 1.8rem
+      .form__group
+        width: 45.45%
+        margin-bottom: 1.5rem
+        &.form__group--textarea
+          width: 100%
+  &__icon
+    //display: inline-block
+    position: absolute
+    left: 0
+    display: none
+    top: 0
+  &__item
+    margin-top: 2rem
+    &:first-of-type
+      margin-top: 0
+    &-val
+      margin: 0
+      display: block
+      padding: 0
+    &-key
+      text-transform: uppercase
+      font-family: $bold
+      margin-bottom: .875rem
+  &__row
+    line-height: 1.71428571
+    margin-top: 2.1rem
+    font-size: .875em
+    padding-left: 3.4375rem
+    letter-spacing: 0.001em
+    position: relative
+    a
+      text-decoration: none
+      color: inherit
+      transition: .25s all ease-in
+      &:hover
+        color: $red
+    &:first-of-type
+      margin-top: 0
+  &__wrapper
+    padding: 0 3rem
+    width: 540px
+    background-color: #ffffff
+    box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.08)
+  &__info
+    padding: 2.375rem 0
+
+.p-news
+  &__images
+    width: 32.05%
+  &__image
+    margin-bottom: 2.5rem
+    &:last-of-type
+      margin-bottom: 0
+    img
+      display: block
+      width: 100%
+      height: auto
+  &__content
+    flex: 1
+    padding: 0 11.875% 0 8.3%
+  &__text
+    line-height: 1.75
+    h1
+      margin-top: -4px
+      margin-bottom: 1.5em
+      line-height: 1.2
+    h3
+      margin-top: 3.5em
+      margin-bottom: 1.8em
+    p
+      margin-bottom: 1.8em
 
 html
   font-size: 16px
@@ -421,6 +535,17 @@ input[type="submit"]
     transition: .25s all ease-in
     border-bottom: 1px solid lighten(#272727, 20%)
 
+.news-inner
+  &__items
+    margin-left: -15px
+    margin-right: -15px
+    margin-bottom: -30px
+    .news__item
+      width: calc(33.33% - 30px)
+      margin-left: 15px
+      margin-right: 15px
+      margin-bottom: 30px
+
 .logo
   display: inline-block
 
@@ -595,7 +720,7 @@ input[type="submit"]
     height: 6.25rem
     color: #272727
   &__search
-    top: -1px
+    margin-top: -2px
     &.active
       svg
         fill: $red
@@ -802,6 +927,8 @@ input[type="submit"]
   text-transform: uppercase
   text-align: center
   position: relative
+  &.caption--left
+    text-align: left
   &.caption--bg
     &:before
       content: attr(data-caption)
@@ -813,6 +940,76 @@ input[type="submit"]
       left: 50%
       transform: translateX(-50%)
       top: -3px
+
+.inline-checkbox
+  input
+    position: absolute
+    z-index: -1
+    opacity: 0
+    width: 0
+    height: 0
+    margin: 0
+    &:checked + span
+      font-family: $med
+      transform: translateX(20px)
+      &:before
+        opacity: 1
+        left: -20px
+        transition: .25s opacity ease-in
+  span
+    display: inline-block
+    position: relative
+    cursor: pointer
+    transition: .25s all ease-in
+    &:before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 0
+      margin-top: -3px
+      width: 4px
+      height: 4px
+      opacity: 0
+      background: $red
+      transition: .25s all ease-in
+
+.checkbox
+  input
+    position: absolute
+    z-index: -1
+    opacity: 0
+    width: 0
+    height: 0
+    margin: 0
+    &:checked + span
+      &:after
+        opacity: 1
+        transform: scale(1)
+  span
+    display: inline-block
+    position: relative
+    padding: 0 0 0 28px
+    cursor: pointer
+    &:before
+      content: ''
+      position: absolute
+      top: -2px
+      left: 0
+      width: 14px
+      height: 14px
+      border: 1px solid #d7d7d7
+      transition: .25s all ease-in
+    &:after
+      content: ''
+      position: absolute
+      top: 4px
+      left: 6px
+      width: 4px
+      height: 4px
+      background-color: $red
+      transition: .25s all ease-in
+      opacity: 0
+      transform: scale(0)
 
 .configurator
   position: relative
@@ -845,6 +1042,208 @@ input[type="submit"]
         .select2-selection__rendered
           font-family: $med
 
+.dots__pagination
+  ul
+    display: flex
+    align-items: center
+    justify-content: center
+    list-style-type: none
+    margin: 0
+    padding: 0
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    line-height: 1
+    text-align: center
+    transition: .25s all ease-in
+    width: 12px
+    height: 12px
+    margin: 0 4px
+  span
+    width: 6px
+    height: 6px
+    transition: .25s all ease-in
+    border-radius: 50%
+    background-color: #e1e1e1
+  li
+    &.current
+      a
+        width: 16px
+        height: 16px
+        span
+          width: 10px
+          height: 10px
+          background-color: #3d3d3d
+
+.number__pagination
+  &-center
+    font-size: .625em
+    color: #3d3d3d
+    letter-spacing: 0.075em
+    margin: 2px 2.8125rem 0
+  &-arrow
+    padding: 0
+    &.number__pagination-left
+      svg
+        transform: rotate(-180deg)
+    a
+      display: flex
+      align-items: center
+      justify-content: center
+      line-height: 1
+      text-align: center
+      width: 30px
+      height: 30px
+      background-color: $red
+      svg
+        fill: #fff
+        width: 10px
+        height: 10px
+  b
+    font-size: 2.3em
+    font-family: $bold
+
+  ul
+    margin: 0
+    padding: 0
+    list-style-type: none
+    display: flex
+    justify-content: center
+    align-items: center
+
+.catalog
+  &__top
+    position: relative
+  &__pagination
+    margin: 2.8125rem auto 0
+  &__content
+    margin-bottom: 10px
+  &__right
+    flex: 1
+    padding-left: 4.5%
+  &__products
+    margin-bottom: -2.5rem
+  &__filter
+    width: 320px
+    display: block
+    box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.07)
+    padding: 1.75rem 2.5rem 2.25rem
+    font-size: .875em
+    color: #0a0a0a
+    letter-spacing: 0.001em
+    &-close
+      display: none
+      position: absolute
+      right: 20px
+      top: 20px
+      background-color: transparent
+      border: 0
+      height: 30px
+      width: 30px
+      &-line
+        display: inline-block
+        position: absolute
+        height: 2px
+        left: 0
+        top: 50%
+        width: 100%
+        background-color: $red
+        &:first-of-type
+          transform: rotate(45deg)
+        &:last-of-type
+          transform: rotate(-45deg)
+    &-btn
+      background-color: transparent
+      border: 0px
+      text-transform: uppercase
+      font-family: $bold
+      color: $red
+      display: none
+      align-items: flex-end
+      line-height: 1
+      justify-content: flex-start
+      font-size: .875em
+      letter-spacing: 0.005em
+      svg
+        width: 16px
+        height: 16px
+        fill: $red
+        margin-right: 8px
+    &-more
+      margin-top: 1.5rem
+      text-decoration: none
+      color: #424242
+      font-size: 0.928571429em
+      align-items: center
+      display: none
+      transition: .25s all ease-in
+      &:hover
+        color: $red
+        svg
+          fill: $red
+      svg
+        width: 9px
+        height: 9px
+        transform: rotate(90deg)
+        transition: .25s all ease-in
+        fill: #424242
+        margin-top: 2px
+        margin-left: 8px
+    &-row
+      margin-top: 3.875rem
+      &.jc-check-options
+        .catalog__filter-options
+          max-height: 0;
+      &.opened
+        .catalog__filter-more
+          svg
+            transform: rotate(-90deg)
+      &:first-of-type
+        margin-top: 0
+    &-options
+      margin-top: calc(2rem - 2px)
+      overflow: hidden
+      transition: .25s all ease-in
+      padding-top: 2px
+    &-option
+      margin-bottom: .7rem
+      &:last-of-type
+        margin-bottom: 0
+    &-title
+      font-family: $bold
+      padding: 0
+      margin: 0
+      text-transform: uppercase
+
+@media screen and (min-width: 992px)
+  .products__item
+    &.products__item--small
+      width: calc(50% - 1.25rem)
+      margin-bottom: 2.5rem
+      .products__item-title
+        font-size: .75em
+        height: 83px
+        padding-top: 1.5rem
+        padding-bottom: 1.5rem
+      .products__item--gutters
+        padding-left: 1.375rem
+        padding-right: 1.375rem
+      .products__item-prices
+        font-size: 0.8125em
+      .products__item-col
+        font-size: .75em
+      .products__item-info
+        padding-top: 2.8125rem
+        padding-bottom: 1.75rem
+      .products__item-prices
+        height: 35px
+        min-width: 186px
+      .products__item-advantage
+        font-size: 0.6875em
+      .products__item-advantage-icon
+        height: 1.5rem
+        margin-right: 1rem
 
 .products
   &__content
@@ -854,14 +1253,15 @@ input[type="submit"]
     width: calc(50% - 2.5rem)
     max-width: 740px
     margin-bottom: 5rem
-    opacity: 0
-    transform: translateY(10%)
-    transition: .9s opacity cubic-bezier(.06,1.07,.96,.98), 1s transform cubic-bezier(.06,1.07,.96,.98)
-    &:nth-child(even)
-      transition-delay: .15s
-    &.visible
-      opacity: 1
-      transform: translateY(0%)
+
+    //opacity: 0
+    //transform: translateY(10%)
+    //transition: .9s opacity cubic-bezier(.06,1.07,.96,.98), 1s transform cubic-bezier(.06,1.07,.96,.98)
+    //&:nth-child(even)
+    //  transition-delay: .15s
+    //&.visible
+    //  opacity: 1
+    //  transform: translateY(0%)
     &-sale
       display: inline-block
       position: absolute
@@ -982,7 +1382,7 @@ input[type="submit"]
       padding: 0rem .7rem
       height: 44px
       left: 50%
-      margin-left: -123px
+      transform: translateX(-50%)
       background-color: #303030
       p
         padding: 0 5px
@@ -1003,7 +1403,7 @@ input[type="submit"]
       margin: 0
       padding-top: 2rem
       padding-bottom: 2rem
-      height: 6.625rem
+      height: 106px
       transition: .25s all ease-in
       text-decoration: none
       display: block
@@ -1179,7 +1579,8 @@ input[type="submit"]
   &__title
     margin: 0
     transition: .25s all ease-in
-    flex: 1
+    height: 40px
+    overflow: hidden
     padding: 0
     font-size: .875em
     font-family: $bold
@@ -1195,11 +1596,55 @@ input[type="submit"]
     padding: 0
     line-height: 1.33333333
 
+.breadcrumbs
+  border-top: 1px solid #e2e2e2
+  padding: 2.25rem 0 2.125rem
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+    color: #272727
+    font-family: $med
+    letter-spacing: 0.001em
+    font-size: 0.8125em
+    padding-left: 9.375rem
+    display: flex
+    flex-wrap: wrap
+    align-items: baseline
+    margin-bottom: -14px
+    a
+      color: inherit
+      text-decoration: none
+    li
+      margin-right: 1.125rem
+      padding-left: 1.375rem
+      position: relative
+      margin-bottom: 14px
+      &:first-of-type
+        padding-left: 0
+        &:before
+          display: none
+      &:last-of-type
+        margin-right: 0
+        color: #929191
+      &:before
+        content: ''
+        display: inline-block
+        position: absolute
+        left: 0
+        top: 50%
+        width: 3px
+        height: 3px
+        background-color: #707070
+        border-radius: 50%
+        margin-top: -2px
 
 .footer
   background-color: #f6f6f6
   padding: 3.75rem 0 3.5rem
   margin-top: 7.8125rem
+  &.footer--margin
+    margin-top: 0
   &__copy
     padding: 0
     margin: 0 1rem
@@ -1317,6 +1762,23 @@ input[type="submit"]
   .reviews__controls
     left: calc(55% + 5%)
 
+@media screen and (max-width: 1300px) and (min-width: 992px)
+  .products__item
+    &.products__item--small
+      .products__item-advantage
+        flex-direction: column
+        align-items: center
+        text-align: center
+      .products__item-advantage-icon
+        margin-right: 0
+      .products__item-advantage-details
+        margin-top: .8rem
+        line-height: 1
+
+@media screen and (max-width: 1350px)
+  .p-news__content
+    padding: 0 7.5% 0 5%
+
 @media screen and (max-width: 1300px)
   html
     font-size: 15px
@@ -1334,15 +1796,26 @@ input[type="submit"]
     min-height: 36rem
     padding: 2.4rem
 
+
 @media screen and (max-width: 1250px)
   .request__form .form__group.form__group--textarea
     width: 34%
   .request__form .form__group
     width: 18%
 
+@media screen and (max-width: 1199px) and (min-width: 992px)
+  .products__item
+    &.products__item--small
+      .products__item-title
+        height: 76px
+
 @media screen and (max-width: 1199px)
   html
     font-size: 14px
+  .breadcrumbs ul
+    padding-left: 7.5rem
+  .catalog__filter
+    width: 280px
   .footer__menu
     padding: 0 16px
   .footer
@@ -1364,6 +1837,7 @@ input[type="submit"]
       margin-right: 1.1rem
   .products__item-title
     font-size: .9em
+    height: 97px
   .caption
     font-size: 1.4em
   .caption.caption--bg::before
@@ -1388,6 +1862,17 @@ input[type="submit"]
   .mt
     margin-top: 3.25rem !important
 
+@media screen and (max-width: 1150px)
+  .products__item
+    &.products__item--small
+      .products__item-col
+        flex-direction: column
+        justify-content: flex-start
+        align-items: center
+        text-align: center
+      .products__item-col--key
+        margin-right: 0
+
 @media screen and (max-width: 1050px)
   .header__socials
     display: none
@@ -1401,6 +1886,46 @@ input[type="submit"]
 @media screen and (max-width: 991px)
   html
     font-size: 13px
+  h1
+    font-size: 1.4em
+  h2
+    font-size: 1.15em
+  .catalog__filter-close
+    display: inline-block
+  .p-news__content
+    padding-right: 0
+  .catalog__top
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    .caption
+      padding-left: 50px
+  .catalog__filter-btn
+    display: inline-flex
+  .catalog__right
+    padding-left: 0
+  .breadcrumbs ul
+    padding-left: 5rem
+  .catalog__filter
+    position: fixed
+    visibility: hidden
+    opacity: 0
+    overflow-y: auto
+    transform: translateY(100%)
+    left: 0
+    top: 0
+    z-index: 12
+    width: 100%
+    padding-right: 65px
+    background-color: #ffffff
+    height: 100%
+    transition: .55s all ease-in
+    &.active
+      transform: translateY(0%)
+      opacity: 1
+      visibility: visible
+  .catalog__products
+    flex-basis: 100%
   .header__search input
     right: 6.2rem
   .mobile-menu
@@ -1444,19 +1969,20 @@ input[type="submit"]
     left: calc(42% + 4%)
   .request__form
     margin-top: 3.5rem
-  .products__item-col
-    font-size: .875em
-  .products__item
-    margin-bottom: 3rem
-  .products__content
-    margin-bottom: -3rem
-  .products__item-col--key
-    margin-right: 1.6rem
-
-  .products__item-title
-    line-height: 1.4
   .products__item
     width: calc(50% - 1.25rem)
+    margin-bottom: 2.5rem
+    .products__item-col
+      font-size: .875em
+    .products__item
+      margin-bottom: 3rem
+    .products__content
+      margin-bottom: -3rem
+    .products__item-col--key
+      margin-right: 1.6rem
+    .products__item-title
+      line-height: 1.4
+      height: 89px
   .configurator__form
     width: 100%
   .header__nav
@@ -1473,8 +1999,12 @@ input[type="submit"]
 @media screen and (max-width: 950px)
   .products__item-col
     flex-direction: column
-    align-items: flex-start
+    align-items: center
     justify-content: flex-start
+    text-align: center
+  .products__item
+    .products__item-col--key
+      margin-right: 0
   .products__item-info
     justify-content: space-around
   //.products__item-advantages
@@ -1492,6 +2022,9 @@ input[type="submit"]
     margin-top: .75rem
   .products__item-advantage--val
     margin-top: .1rem
+  .news-inner
+    .news__item
+      width: calc(50% - 30px)
 
 
 @media screen and (max-width: 850px)
@@ -1518,6 +2051,10 @@ input[type="submit"]
     padding-bottom: 5rem !important
   .mt
     margin-top: 2.4rem !important
+  .caption
+    font-size: 1.3em
+  .breadcrumbs ul
+    padding-left: 2.5rem
   .reviews__img
     width: 365px
     height: 267px
@@ -1565,10 +2102,38 @@ input[type="submit"]
 @media screen and (max-width: 650px)
   .banner
     min-height: 24rem
+  .p-news__images
+    width: 250px
+    margin-left: auto
+    margin-right: auto
+  .p-news__content
+    padding-left: 0
+  .p-news__text
+    padding-left: 0
+    flex-basis: 100%
+    width: 100%
+    margin-top: 4.5rem
+    h1
+      margin-top: 0
+  .p-news__image
+    margin-bottom: 0
+    &:not(:first-of-type)
+      display: none
+  .p-news
+    & > .container
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+
+  .breadcrumbs ul
+    padding-left: 0rem
   .footer__top
     width: 70%
+  .catalog__products,
   .products__content
     width: 70%
+    flex-basis: 70%
+    max-width: 70%
     margin-left: auto
     margin-right: auto
   .products__item
@@ -1576,9 +2141,25 @@ input[type="submit"]
   .products__item-advantages.products__item--three
     justify-content: space-between
 
+@media screen and (max-width: 620px)
+  .news-inner
+    .news__item
+      width: 100%
+      margin-left: 0
+      margin-right: 0
+  .news-inner__items
+    margin-left: 0
+    margin-right: 0
+
 @media screen and (max-width: 500px)
   .header__contacts
     display: none
+  .p-contacts__form-inputs .form__group
+    width: 100%
+  .p-contacts__form-title
+    font-size: 1.1em
+  .p-contacts__wrapper
+    padding: 0 2.2rem
   .request__form .form__group
     width: 100%
     margin-bottom: 2.2rem
@@ -1602,8 +2183,11 @@ input[type="submit"]
     margin-bottom: 0
 
 @media screen and (max-width: 480px)
-  .products__content
+  .products__content,
+  .catalog__products
     width: 90%
+    flex-basis: 90%
+    max-width: 90%
 
 @media screen and (max-width: 450px)
   .pt
@@ -1612,6 +2196,16 @@ input[type="submit"]
     padding-bottom: 4.2rem !important
   .mt
     margin-top: 2.1em !important
+  .catalog__top
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    .caption
+      order: 2
+      padding-left: 0
+  .catalog__filter-btn
+    margin-bottom: 12px
+    order: 1
   .modal.callback-modal
     min-width: auto
     width: 97%
@@ -1648,5 +2242,8 @@ input[type="submit"]
 
 
 @media screen and (max-width: 380px)
-  .products__content
+  .products__content,
+  .catalog__products
     width: 100%
+    flex-basis: 100%
+    max-width: 100%

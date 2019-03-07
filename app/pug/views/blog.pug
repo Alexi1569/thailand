@@ -1,0 +1,51 @@
+extends ../includes/_layout
+
+block header
+  include ../includes/_header
+
+block main
+  main.main
+    - var breadcrumbs = ['PrivetPhuket', 'Блог'];
+    include ../includes/_breadcrumbs
+    section.news-inner
+      .container
+        p.caption Тем временем в пхукете
+        .news-inner__items.flex.fw-w.ai-s.jc-fs.mt
+          .news__item(style="background-image: url('./img/news-1.jpg')")
+            a(href="#").news__info
+              p.news__title Что нужно знать, выбирая тур в Таиланд?
+              p.news__descr Любители этнотуризма, желающие окунутся с головой в экзотику, могут на несколько...
+          .news__item(style="background-image: url('./img/news-1.jpg')")
+            a(href="#").news__info
+              p.news__title Что нужно знать, выбирая тур в Таиланд?
+              p.news__descr Любители этнотуризма, желающие окунутся с головой в экзотику, могут на несколько...
+          .news__item(style="background-image: url('./img/news-1.jpg')")
+            a(href="#").news__info
+              p.news__title Что нужно знать, выбирая тур в Таиланд?
+              p.news__descr Любители этнотуризма, желающие окунутся с головой в экзотику, могут на несколько...
+          .news__item(style="background-image: url('./img/news-1.jpg')")
+            a(href="#").news__info
+              p.news__title Что нужно знать, выбирая тур в Таиланд?
+              p.news__descr Любители этнотуризма, желающие окунутся с головой в экзотику, могут на несколько...
+          .news__item(style="background-image: url('./img/news-1.jpg')")
+            a(href="#").news__info
+              p.news__title Что нужно знать, выбирая тур в Таиланд?
+              p.news__descr Любители этнотуризма, желающие окунутся с головой в экзотику, могут на несколько...
+
+        .dots__pagination.mt
+          ul
+            li
+              a(href="#")
+                span
+            li.current
+              a(href="#")
+                span
+            li
+              a(href="#")
+                span
+            li
+              a(href="#")
+                span
+            li
+              a(href="#")
+                span

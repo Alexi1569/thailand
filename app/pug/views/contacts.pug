@@ -1,0 +1,51 @@
+extends ../includes/_layout
+
+block header
+  include ../includes/_header
+
+block main
+  main.main
+    - var breadcrumbs = ['PrivetPhuket', 'Контакты'];
+    - var isFooter = true;
+    include ../includes/_breadcrumbs
+    section.p-contacts(style="background-image: url('./img/contacts-bg.jpg')")
+      .container.flex.jc-fe
+        .p-contacts__wrapper
+          .p-contacts__info
+            .p-contacts__row
+              i.p-contacts__icon
+                <svg><use xlink:href="#location-icon" /></svg>
+              .p-contacts__item
+                p.p-contacts__item-key Москва
+                p.p-contacts__item-val 121471 Москва, ул. Петра Алексеева, д. 12, стр. 23
+              .p-contacts__item
+                p.p-contacts__item-key Таиланд
+                p.p-contacts__item-val Botanica villas B3 phase 2 address 29/71 M.6 Cheangtalay sub-district Thalang district Phuket province post code 83110
+            .p-contacts__row
+              i.p-contacts__icon
+                <svg><use xlink:href="#phone-icon" /></svg>
+              .p-contacts__item
+                a(href="tel:+7 (495) 908-73-76").p-contacts__item-val +7 (495) 908-73-76
+                a(href="tel:+7 (926) 850-27-95").p-contacts__item-val +7 (926) 850-27-95
+                a(href="tel:+66 (84)287-84-48").p-contacts__item-val +66 (84)287-84-48
+            .p-contacts__row
+              i.p-contacts__icon
+                <svg><use xlink:href="#email-icon" /></svg>
+              .p-contacts__item
+                a(href="mailto: info@privetphuket.com").p-contacts__item-val info@privetphuket.com
+          form(action="#").p-contacts__form
+            p.p-contacts__form-title Остались вопросы?
+            .p-contacts__form-inputs.flex.jc-sb.ai-fs.fw-w
+              .form__group
+                .form__group-input
+                  input(type="text" class="only-text-input" placeholder="Имя*" required )
+                span.form__group-message Ошибка
+              .form__group
+                .form__group-input
+                  input(type="tel" class="only-numbers-input" placeholder="Телефон*" required )
+                span.form__group-message Ошибка
+              .form__group.form__group--textarea
+                .form__group-input
+                  input(type="text" placeholder="Сообщение")
+                span.form__group-message Ошибка
+            button.btn.p-contacts__form-btn Отправить

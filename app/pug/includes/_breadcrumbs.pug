@@ -1,0 +1,9 @@
+.breadcrumbs
+  .container
+    ul
+      each val, i in breadcrumbs
+        if i == breadcrumbs.length - 1
+          li= val
+        else
+          li
+            a(href="#")= val
