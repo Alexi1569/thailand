@@ -72,7 +72,19 @@ gulp.task(
 
 gulp.task('js-libs-optimize', function() {
   return gulp
-    .src(['app/libs/**/*.js', 'app/js/**/*.js', '!app/libs/jquery-3.3.1.min.js', '!app/js/main.js'])
+    .src([
+      'app/libs/moment.min.js',
+      'app/libs/daterangepicker.js',
+      'app/libs/jquery.fancybox.min.js',
+      'app/libs/jquery.mask.min.js',
+      'app/libs/jquery.vide.min.js',
+      'app/libs/jquery-watch.min.js',
+      'app/libs/select2.full.min.js',
+      'app/libs/smooth-scrollbar.js',
+      'app/libs/swiper.min.js',
+      'app/libs/TweenMax.min.js',
+      'app/libs/plyr.min.js',
+    ])
     .pipe(concat('build.min.js'))
     .pipe(gulp.dest('build/js'))
     .pipe(browserSync.stream());

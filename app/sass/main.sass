@@ -5,6 +5,7 @@ $bold: 'Muller bold'
 $light: 'Muller light'
 
 $red: #ff2e3b
+$green: #00b184
 
 *
   appearance: none
@@ -118,10 +119,457 @@ body
   width: 100%
   position: relative
 
+.daterangepicker
+  font-family: $reg
+  td
+    transition: .25s all ease-in
+  .calendar-table
+    table
+      border-collapse: inherit
+      border-spacing: 1px
+  td.active, .daterangepicker td.active:hover
+    background-color: #cccccc !important
+  td.disabled, option.disabled
+    text-decoration: none
+    color: #c9c9c9
+    background-color: #fafafa
+  td.available:hover, th.available:hover
+    background-color: transparent
+    border: 1px solid #d7d7d7
+
+
 .main
   flex: 1
   width: 100%
   overflow: hidden
+  padding-bottom: 16px
+  margin-top: -16px
+
+.video-player
+  &__overlay
+    position: absolute
+    display: block
+    background-color: rgba(#000, .3)
+    transform: scale(0.8)
+    opacity: 0
+    transform-origin: 50% 50%
+    transition: .25s all ease-in
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+  &.active
+    .video-player__overlay
+      opacity: 1
+      transform: scale(1)
+  .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]
+    background: #abb4c1
+  .plyr--full-ui input[type=range]
+    color: #abb4c1
+  .plyr__control.plyr__tab-focus
+    box-shadow: none
+  .plyr__video-embed + button
+    background: #abb4c1 url('../img/player-icon.svg') no-repeat center
+    background-size: 100%
+    width: 32px
+    height: 32px
+    transform: none
+    margin-left: -16px
+    margin-bottom: -16px
+    padding: 0
+    box-shadow: 0px 0px 0px 10px rgba(#fff, .2)
+    &:hover
+      background: #abb4c1 url('../img/player-icon.svg') no-repeat center
+      background-size: 100%
+    svg
+      display: none
+
+.p-product
+  &__reviews
+    &-title
+      padding: 0
+      margin: 0
+      margin-right: 1.2rem
+    &-item
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+      margin-bottom: 3.75rem
+      &:last-of-type
+        margin-bottom: 2.25rem
+    &-icon
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      width: 4.375rem
+      height: 4.375rem
+      border-radius: 50%
+      line-height: 1
+      background-color: #ffffff
+      box-shadow: 0px 0px 13.5px 1.5px rgba(0, 0, 0, 0.07)
+      img
+        max-width: 2.1875rem
+        height: auto
+    &-text
+      font-size: 0.8125em
+      color: #191919
+      line-height: 1.61538462
+      margin-top: 1.25rem
+      *:first-child
+        margin-top: 0
+      *:last-child
+        margin-bottom: 0
+    &-date
+      padding: 0
+      margin: 0
+      margin-top: .4rem
+      color: #7e7e7e
+      font-size: 0.6875em
+    &-name
+      margin: 0
+      padding: 0
+      color: #252424
+      font-family: $extra
+      font-size: .875em
+    &-info
+      flex: 1
+      padding-left: 1.75rem
+      &-personal
+        letter-spacing: 0.025em
+        flex: 1
+        padding-right: 2rem
+      &-rating
+        list-style-type: none
+        position: relative
+        top: -3px
+        margin: 0
+        padding: 0
+        li
+          &:not(:last-of-type)
+            margin-right: 3px
+          &.star--filled
+            span:before
+              color: #ffb100
+        span
+          overflow: hidden
+          font-family: 'dashicons'
+          display: inline-block
+          text-indent: 9999px
+          white-space: nowrap
+          width: 17px
+          height: 16px
+          &:before
+            display: inline-block
+            text-indent: -9999px
+            content: "\f155"
+            color: #cfcfcf
+            transition: .25s all ease-in
+    &-content
+      padding: 3.4375rem 28.5% 3.4375rem 5.9%
+    &-inner
+      box-shadow: 0px 0px 13.5px 1.5px rgba(0, 0, 0, 0.07)
+      padding-left: 2.75rem
+      padding-right: 2.75rem
+    &-top
+      padding: 3.4375rem 0 1.125rem
+      border-bottom: 1px solid #d7d7d7
+      color: #121212
+      font-family: $med
+      letter-spacing: 0.001em
+    &-link
+      text-decoration: none
+      color: inherit
+      transition: .25s all ease-in
+      &:hover
+        color: $red
+  &__video
+    width: 63.46%
+    margin: 0 auto
+  &__map
+    &-inner
+      iframe
+        border: 0px
+        display: block
+        height: 27.1875rem
+        width: 100%
+  &__advantage
+    display: inline-flex
+    align-items: center
+    color: #161616
+    font-size: .875em
+    justify-content: flex-start
+    width: 18%
+    margin-bottom: 1.125rem
+    span
+      position: relative
+      top: 1px
+      display: inline-block
+    &:not(:nth-of-type(5n))
+      margin-right: 2.5%
+    &-icon
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      margin-right: 0.9375rem
+      fill: #fff
+      line-height: 1
+      width: 17px
+      background-color: #cccccc
+      height: 17px
+      &.p-product__advantage--in
+        background-color: $green
+  &__advantages
+    margin-top: 5.9375rem
+    &-items
+      margin-bottom: -1.125rem
+      margin-top: 1.5rem
+  &__period
+    width: 100%
+  &__cta
+    margin-top: 2.2rem
+    &-btn
+      margin-top: 1rem
+      width: 100%
+      &.btn
+        padding-top: 1rem
+        padding-bottom: .8rem
+  &__price
+    padding: 0
+    margin: 0
+    font-family: $bold
+    letter-spacing: 0.001em
+    font-size: 1.25em
+    white-space: nowrap
+    color: #121212
+  &__tooltip
+    padding: 0
+    margin: 0
+    font-size: 0.8125em
+    color: #3a3939
+    margin-left: 10px
+  &__form
+    flex: 1
+    padding-left: 7.5%
+    &-left
+      width: 46%
+    &-right
+      width: 38.13%
+  &__calendar
+    &-view
+      top: -1px
+      position: relative
+      z-index: 0
+      width: 22.8125rem
+      .daterangepicker
+        left: 0 !important
+        right: auto !important
+        top: 0 !important
+        display: block !important
+        width: 100% !important
+        margin: 0
+        &:before,
+        &:after
+          display: none
+        .calendar-table td
+          height: 21px
+          line-height: 21px
+      .drp-calendar
+        width: 100%
+        max-width: none
+  &__bottom
+    margin-top: 3.4375rem
+    &--m
+      margin-top: 1.125rem
+  &__condition
+    margin-top: 2rem
+    &-list
+      list-style-type: none
+      margin: 0
+      padding: 0
+      margin-top: 2rem
+      color: #121212
+      font-size: .875em
+      letter-spacing: 0.001em
+      li
+        position: relative
+        padding-left: 1.375rem
+        &:not(:last-of-type)
+          margin-bottom: 12px
+        &:before
+          content: ''
+          display: inline-block
+          position: absolute
+          left: 0
+          top: 4px
+          width: 4px
+          height: 4px
+          background-color: $red
+  &__attrs
+    color: #121212
+    letter-spacing: 0.001em
+    font-size: .875em
+    margin-top: 3.25rem
+    &-row
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+      &:not(:last-of-type)
+        margin-bottom: 12px
+    &--key
+      width: 53.65%
+      font-family: $med
+      padding: 0
+      margin: 0
+    &--val
+      flex: 1
+      padding-left: 1.25rem
+      padding: 0
+      margin: 0
+    a.p-product__attrs--val
+      color: $red
+      text-decoration: underline
+  &__top
+    margin-top: 3.4375rem
+  &__title
+    padding: 0
+    margin: 0
+    font-family: $med
+    color: #0c0c0c
+    font-size: 1.5em
+    text-transform: uppercase
+  &__general
+    &-input
+      text-align: center
+      letter-spacing: 0.001em
+      font-size: .875em
+      height: 44px
+      display: flex
+      align-items: center
+      cursor: pointer
+      line-height: 46px
+      justify-content: center
+      margin-top: -1px
+      &:hover
+        span
+          color: #121212
+          z-index: 1
+          font-family: $med
+          &:after
+            border-color: #000000
+            transform: scaleX(1)
+            opacity: 1
+      span
+        display: block
+        color: #666666
+        height: 100%
+        width: 100%
+        transition: .25s all ease-in
+        position: relative
+        &:before
+          left: 0
+        &:after
+          left: 0
+          opacity: 0
+          transform-origin: center center
+          transform: scaleX(0)
+        &:before,
+        &:after
+          content: ''
+          display: block
+          position: absolute
+          top: 0
+          bottom: 0
+          width: 100%
+          border: 1px solid #d7d7d7
+          right: 0
+          transition: .45s all ease-in
+      input
+        display: none
+        &:checked + span
+          color: #121212
+          z-index: 1
+          font-family: $med
+          &:after
+            border-color: #000000
+            transform: scaleX(1)
+            opacity: 1
+
+    &-title
+      padding: 0
+      margin: 0
+      text-transform: uppercase
+      color: #121212
+      font-size: .875em
+      letter-spacing: 0.001em
+      font-family: $bold
+  &__info
+    flex: 1
+    padding-left: 5.7%
+    &-top
+      width: 100%
+  &__options
+    &-items
+      margin-bottom: -1rem
+      margin-top: 1.65rem
+    &-item
+      color: #1f1f1f
+      font-size: 0.6875em
+      width: 32%
+      margin-bottom: 1rem
+      &:not(:nth-of-type(3n))
+        margin-right: 2%
+      &-details
+        margin-top: 2px
+      &--key
+        padding: 0
+        margin: 0
+      &--val
+        padding: 0
+        margin: 0
+        margin-top: .25rem
+      &-icon
+        display: inline-block
+        height: 1.5625rem
+        width: 1.5625rem
+        margin-right: 1rem
+        svg
+          max-height: 100%
+          max-width: 100%
+  &__gallery
+    width: 69.2%
+    max-width: 1058px
+    .swiper-button-next,
+    .swiper-button-prev
+      background-image: none
+      position: absolute
+      top: 0
+      bottom: 0
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      width: 5.625rem
+      height: 100%
+      margin: 0
+      transition: .25s all ease-in
+      background-color: rgba(#fff, 0)
+      &:hover
+        background-color: rgba(#fff, .15)
+      svg
+        fill: #fff
+        width: 15px
+        height: 15px
+    .swiper-button-prev
+      left: 0
+      right: auto
+    .swiper-button-next
+      right: 0
+      left: auto
+      svg
+        transform: rotate(-180deg)
+    &-item
+      img
+        max-width: 100%
+        height: auto
 
 .p-contacts
   background-position: 50% 50%
@@ -156,10 +604,9 @@ body
         &.form__group--textarea
           width: 100%
   &__icon
-    //display: inline-block
+    display: inline-block
     position: absolute
     left: 0
-    display: none
     top: 0
   &__item
     margin-top: 2rem
@@ -180,6 +627,12 @@ body
     padding-left: 3.4375rem
     letter-spacing: 0.001em
     position: relative
+    &:nth-of-type(1)
+      .p-contacts__icon
+        top: -4px
+    &:nth-of-type(2)
+      .p-contacts__icon
+        top: -3px
     a
       text-decoration: none
       color: inherit
@@ -278,6 +731,7 @@ input[type="submit"]
     justify-content: center
     line-height: 1
     height: 20px
+    cursor: pointer
     svg
       fill: #7a7a7a
       width: 12px
@@ -1614,7 +2068,10 @@ input[type="submit"]
     margin-bottom: -14px
     a
       color: inherit
+      transition: .25s all ease-in
       text-decoration: none
+      &:hover
+        color: $red
     li
       margin-right: 1.125rem
       padding-left: 1.375rem
@@ -1802,6 +2259,10 @@ input[type="submit"]
     width: 34%
   .request__form .form__group
     width: 18%
+  .p-product__gallery
+    width: 67%
+  .p-product__info
+    padding-left: 4%
 
 @media screen and (max-width: 1199px) and (min-width: 992px)
   .products__item
@@ -1812,6 +2273,10 @@ input[type="submit"]
 @media screen and (max-width: 1199px)
   html
     font-size: 14px
+  .p-product__form-right
+    width: 42%
+  .p-product__title
+    font-size: 1.35em
   .breadcrumbs ul
     padding-left: 7.5rem
   .catalog__filter
@@ -1890,6 +2355,31 @@ input[type="submit"]
     font-size: 1.4em
   h2
     font-size: 1.15em
+  .p-product__form
+    padding-left: 4%
+  .p-product__form-right
+    width: 46%
+  .p-product__title
+    font-size: 1.2em
+  .p-product__gallery
+    width: 60%
+    margin-left: auto
+    margin-right: auto
+  .p-product__top
+    flex-wrap: wrap
+  .p-product__info
+    padding-left: 0%
+    width: 100%
+    flex-basis: 100%
+    margin: 3rem auto 0
+    flex-direction: row
+    align-items: flex-start
+    justify-content: space-between
+  .p-product__condition
+    margin-top: 0
+    padding-left: 2.5rem
+  .p-product__info-top
+    flex: 1
   .catalog__filter-close
     display: inline-block
   .p-news__content
@@ -2034,6 +2524,23 @@ input[type="submit"]
     width: 23%
     &.form__group--textarea
       width: 23%
+  .p-product__form
+    padding-left: 0
+    width: 100%
+    flex-basis: 100%
+    margin-top: 3rem
+  .p-product__form-left,
+  .p-product__form-right
+    .p-product__general-title
+      text-align: center
+  .p-product__calendar
+    margin-left: auto
+    margin-right: auto
+    width: 60%
+    .p-product__general-title
+      text-align: center
+  .p-product__calendar-view
+    width: 100%
   .header__search
     input
       width: calc(100vw - 30px)
@@ -2051,6 +2558,25 @@ input[type="submit"]
     padding-bottom: 5rem !important
   .mt
     margin-top: 2.4rem !important
+  .p-product__top
+    margin-top: 2.5rem
+  .p-product__title
+    font-size: 1.1em
+  .p-product__gallery
+    width: 75%
+  .p-product__info
+    flex-wrap: wrap
+  .p-product__condition
+    margin-top: 2.4rem
+    padding-left: 0
+  .p-product__options-item
+    justify-content: center
+  .p-product__options
+    .p-product__general-title
+      text-align: center
+  .p-product__info-top
+    flex-basis: 100%
+    width: 100%
   .caption
     font-size: 1.3em
   .breadcrumbs ul
@@ -2150,12 +2676,24 @@ input[type="submit"]
   .news-inner__items
     margin-left: 0
     margin-right: 0
+  .p-product__form-left,
+  .p-product__form-right
+    width: 75%
+  .p-product__form-right
+    margin-top: 3rem
+  .p-product__form
+    flex-wrap: wrap
+    justify-content: center
 
 @media screen and (max-width: 500px)
   .header__contacts
     display: none
   .p-contacts__form-inputs .form__group
     width: 100%
+  .p-product__form-left,
+  .p-product__form-right,
+  .p-product__calendar
+    width: 80%
   .p-contacts__form-title
     font-size: 1.1em
   .p-contacts__wrapper
@@ -2188,6 +2726,8 @@ input[type="submit"]
     width: 90%
     flex-basis: 90%
     max-width: 90%
+  .p-product__gallery
+    width: 90%
 
 @media screen and (max-width: 450px)
   .pt
@@ -2247,3 +2787,8 @@ input[type="submit"]
     width: 100%
     flex-basis: 100%
     max-width: 100%
+  .p-product__gallery,
+  .p-product__form-left,
+  .p-product__form-right,
+  .p-product__calendar
+    width: 100%

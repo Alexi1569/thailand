@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
 
   $.fancybox.defaults.hideScrollbar = false;
   $.fancybox.defaults.touch = false;
-  $.fancybox.defaults.btnTpl.smallBtn = '<span data-fancybox-close class="modal-close">' + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.642 15.642"><path fill-rule="evenodd" d="M8.882 7.821l6.541-6.541A.75.75 0 1 0 14.362.219L7.821 6.76 1.28.22A.75.75 0 1 0 .219 1.281L6.76 7.822l-6.54 6.54a.75.75 0 0 0 1.06 1.061l6.541-6.541 6.541 6.541a.75.75 0 1 0 1.06-1.061l-6.54-6.541z"/></svg>' + '</span>';
+  $.fancybox.defaults.btnTpl.smallBtn = '<span data-fancybox-close class="modal-close">' + '<svg><use xlink:href="#close-icon" /></svg>' + '</span>';
   $(window).resize(function () {
     windowWidth = $(window).width();
   });
@@ -223,6 +223,19 @@ jQuery(document).ready(function ($) {
     });
   })();
 
+  (function initProductSlider() {
+    var $slider = $('#product-gallery');
+    var mySwiper = new Swiper($slider, {
+      loop: true,
+      speed: 650,
+      watchOverflow: true,
+      navigation: {
+        prevEl: $slider.find('.swiper-button-prev'),
+        nextEl: $slider.find('.swiper-button-next')
+      }
+    });
+  })();
+
   (function initMobileMenu() {
     var $btn = $('#header-mobile');
     var $menu = $('#mobile-menu');
@@ -304,5 +317,54 @@ jQuery(document).ready(function ($) {
         $('.catalog__filter').removeClass('active');
       });
     }
+  })();
+
+  (function initCalendars() {
+    var $visible = $('#calendar-visible');
+    var $parent = $visible.closest('.p-product__calendar-view');
+    var $spacer = $parent.find('.p-product__calendar-spacer');
+    $visible.daterangepicker({
+      opens: 'left',
+      parentEl: $parent,
+      singleDatePicker: true
+    });
+    $visible.data('daterangepicker').show();
+    var w = $parent.find('.daterangepicker').outerWidth(true);
+    var h = $parent.find('.daterangepicker').outerHeight(true);
+    $spacer.css({
+      height: "".concat(h, "px"),
+      width: "".concat(w, "px")
+    });
+  })();
+
+  (function initProductVideo() {
+    var $video = $('.video-item');
+    $video.each(function () {
+      var $controls;
+      var $parent = $(this).closest('.video-player');
+      var player = new Plyr($(this));
+      player.on('ready', function () {
+        var overlay = document.createElement('div');
+        overlay.classList.add('video-player__overlay');
+        $parent.find('.plyr').append(overlay);
+        $parent.addClass('active');
+        $controls = $parent.find('.plyr__controls');
+        $controls.css({
+          display: 'none'
+        });
+      });
+      player.on('play', function () {
+        if ($controls[0].style.display === 'none') {
+          $controls.css({
+            display: 'flex'
+          });
+        }
+
+        $parent.removeClass('active');
+      });
+      player.on('pause', function () {
+        $parent.addClass('active');
+      });
+    });
   })();
 });
