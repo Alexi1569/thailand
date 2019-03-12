@@ -1,0 +1,65 @@
+extends ../includes/_layout
+
+block header
+  include ../includes/_header
+
+block main
+  main.main
+    - var breadcrumbs = ['PrivetPhuket', 'Отзывы'];
+    include ../includes/_breadcrumbs
+    section.p-reviews
+      .container
+        p.caption НАШИ СЧАСТЛИВЫЕ ГОСТИ
+        .reviews__content.mt
+          .reviews__slider.swiper-container#reviews__slider.p-reviews__slider
+            .swiper-wrapper
+              .swiper-slide.reviews__item
+                .reviews__img
+                  .reviews__img-inner(style="background-image: url('./img/review-1.jpg')")
+                .reviews__info.inline-flex.fd-c.jc-sb.ai-fs
+                  .reviews__top
+                    .reviews__top-text
+                      p.reviews__name Вероника и Таня
+                      p.reviews__date 21.07.2018
+                  .reviews__text
+                    p Отдыхать ездили с друзьями. Тур брать не хотела, решил своим ходом. Для меня это было впервые. Чисто случайно наткнулась в интернете на ребят из PrivetPhuket. Решил оставить запрос. Ответили в течении 5 минут. Предложили 5-6 вариантов. Про каждый рассказали. Все варианты по хорошей цене. Процентов на 30 дешевле чем мне заряжали в турфирме. Я подумала минут 20 остановилась на студии на Патонге,недалеко от комплекса где жили мои друзья.
+                    p Немного боялась, конечно, потому что много слышала про то как кидают туристов в Тайланде. Но ребята сработали четко и не подвели. Встретили в аэропорту отвезли на место. Все показали и рассказали. Вообщем все прошло гладко и я доволена.
+                    p Отдельное спасибо менеджеру Максиму. Вернусь к Вам еще раз. Спасибо)))
+              .swiper-slide.reviews__item
+                .reviews__img
+                  .reviews__img-inner(style="background-image: url('./img/review-1.jpg')")
+                .reviews__info.inline-flex.fd-c.jc-sb.ai-fs
+                  .reviews__top
+                    .reviews__top-text
+                      p.reviews__name Вероника и Таня
+                      p.reviews__date 21.07.2018
+                  .reviews__text
+                    p Отдыхать ездили с друзьями. Тур брать не хотела, решил своим ходом. Для меня это было впервые. Чисто случайно наткнулась в интернете на ребят из PrivetPhuket. Решил оставить запрос. Ответили в течении 5 минут. Предложили 5-6 вариантов. Про каждый рассказали. Все варианты по хорошей цене. Процентов на 30 дешевле чем мне заряжали в турфирме. Я подумала минут 20 остановилась на студии на Патонге,недалеко от комплекса где жили мои друзья.
+                    p Немного боялась, конечно, потому что много слышала про то как кидают туристов в Тайланде. Но ребята сработали четко и не подвели. Встретили в аэропорту отвезли на место. Все показали и рассказали. Вообщем все прошло гладко и я доволена.
+                    p Отдельное спасибо менеджеру Максиму. Вернусь к Вам еще раз. Спасибо)))
+
+            .reviews__controls.flex.ai-fe.jc-sb
+              .reviews__numbers.slider-numbers
+              .swiper-arrows.jc-fe.inline-flex
+                .swiper-button-prev.btn
+                  <svg><use xlink:href="#arrow-right-icon" /></svg>
+                .swiper-button-next.btn
+                  <svg><use xlink:href="#arrow-right-icon" /></svg>
+
+        .p-reviews__action.flex.jc-sb.ai-c
+          p.p-reviews__title поделитесь вашими впечатлениями о
+            b PRIVETPHUKET
+          form.p-reviews__form.flex.fw-w.jc-sb.ai-fe
+            .form__group
+              .form__group-input
+                input(type="text" class="only-text-input" placeholder="Ваше имя*" required )
+              span.form__group-message Ошибка
+            .form__group
+              .form__group-input
+                input(type="email" class="only-numbers-input" placeholder="E-mail*" required )
+              span.form__group-message Ошибка
+            .form__group.form__group--textarea
+              .form__group-input
+                input(type="text" placeholder="Отзыв*")
+              span.form__group-message Ошибка
+            button.btn.modal__form-btn Отправить

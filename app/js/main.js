@@ -14,6 +14,7 @@ jQuery(document).ready(function ($) {
 
   $.fancybox.defaults.hideScrollbar = false;
   $.fancybox.defaults.touch = false;
+  $.fancybox.defaults.autoFocus = false;
 
   $.fancybox.defaults.btnTpl.smallBtn = '<span data-fancybox-close class="modal-close">' +
     '<svg><use xlink:href="#close-icon" /></svg>' +
@@ -243,16 +244,18 @@ jQuery(document).ready(function ($) {
   })();
 
   (function initProductSlider() {
-    var $slider = $('#product-gallery');
+    var $slider = $('.product-gallery');
 
-    var mySwiper = new Swiper($slider, {
-      loop: true,
-      speed: 650,
-      watchOverflow: true,
-      navigation: {
-        prevEl: $slider.find('.swiper-button-prev'),
-        nextEl: $slider.find('.swiper-button-next')
-      },
+    $slider.each(function() {
+      var mySwiper = new Swiper($(this), {
+        loop: true,
+        speed: 650,
+        watchOverflow: true,
+        navigation: {
+          prevEl: $(this).find('.swiper-button-prev'),
+          nextEl: $(this).find('.swiper-button-next')
+        },
+      });
     });
   })();
 
@@ -346,26 +349,66 @@ jQuery(document).ready(function ($) {
 
   (function initCalendars() {
     var $visible = $('#calendar-visible');
-    var $parent = $visible.closest('.p-product__calendar-view');
-    var $spacer = $parent.find('.p-product__calendar-spacer');
+    var $calendar = $('.calendar-input');
 
-    $visible.daterangepicker({
-      opens: 'left',
-      parentEl: $parent,
-      singleDatePicker: true,
-    });
+    if ($visible.length) {
+      var $parent = $visible.closest('.p-product__calendar-view');
+      var $spacer = $parent.find('.p-product__calendar-spacer');
 
-    $visible.data('daterangepicker').show();
+      $visible.daterangepicker({
+        opens: 'left',
+        parentEl: $parent,
+        singleDatePicker: true,
+      });
 
-    var w = $parent.find('.daterangepicker').outerWidth(true);
-    var h = $parent.find('.daterangepicker').outerHeight(true);
+      $visible.data('daterangepicker').show();
 
-    $spacer.css({
-      height: `${h}px`,
-      width: `${w}px`,
-    });
+      var w = $parent.find('.daterangepicker').outerWidth(true);
+      var h = $parent.find('.daterangepicker').outerHeight(true);
+
+      $spacer.css({
+        height: `${h}px`,
+        width: `${w}px`,
+      });
+    }
+
+    if ($calendar.length) {
+      $calendar.daterangepicker({
+        opens: 'center',
+        parentEl: $('#calendar-modal'),
+        autoApply: true
+      });
+
+      $calendar.on('show.daterangepicker', function(e, picker) {
+        $.fancybox.open({
+          src: '#calendar-modal',
+          type: 'inline',
+        });
+
+        return false;
+      });
+
+      $calendar.on('apply.daterangepicker', function(e, picker) {
+        $.fancybox.close();
+
+        return false;
+      });
+
+      $calendar.on('cancel.daterangepicker', function(e, picker) {
+        $.fancybox.close();
+
+        return false;
+      });
+    }
+
   })();
 
+  /* OPEN MODAL AFTER BOOKING
+    $.fancybox.open({
+      src: '#book-success',
+      type: 'inline',
+    });
+  */
   (function initProductVideo() {
     var $video = $('.video-item');
 

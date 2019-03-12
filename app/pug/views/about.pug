@@ -1,0 +1,72 @@
+extends ../includes/_layout
+
+block header
+  include ../includes/_header
+
+block main
+  main.main
+    - var breadcrumbs = ['PrivetPhuket', 'О нас'];
+    include ../includes/_breadcrumbs
+    section.p-about
+      .container
+        p.caption Агентство недвижимости Privet Phuket
+        .p-about__top.flex.jc-sb.mt.ai-fs
+          .p-about__images
+            .p-about__images-img.p-about__images-left(style="background-image: url('./img/about-left.jpg')")
+            .p-about__images-img.p-about__images-right(style="background-image: url('./img/about-right.jpg')")
+          .p-about__info.p-about__text
+            p Агентство недвижимости
+              b  Privet Phuket
+              |  помогает клиентам отправиться на отдых своей мечты.
+            p В 2010 году мы начали работать в сердце королевства Таиланд — на острове Пхукет. Постепенно наша база пополнилась сотнями объектов, которые располагаются неподалеку от известных пляжей Раваи и Най Харн на юге до Май Кхао и Натая на севере.
+            p Мы работаем в двух основных направлениях:
+            ul
+              li аренда жилья со всеми удобствами на любой срок;
+              li продажа недвижимости, посредничество между продавцом и покупателем.
+            p
+              b Наша миссия
+              |  — поддерживать наших клиентов, оперативно решать их проблемы, быть другом и помощником на всем протяжении поездки. Мы и наши специалисты делают все, чтобы отдых каждого клиента превратился в незабываемое путешествие, после которого останутся прекрасные впечатления.
+
+        .p-about__services.flex.jc-sb.fw-w
+          .p-about__rent.p-about__text.p-about__part
+            h3 В спектр услуг по аренде входит:
+            ul
+              li помощь в выборе оптимального варианта размещения как с помощью сайта, так и в результате консультации со специалистом;
+              li сопровождение сделки на каждом этапе, от первого обращения до трансфера в аэропорт. Оформление всех необходимых документов, в том числе платежных;
+              li дополнительные услуги во время отдыха: организация экскурсий, круизов, аренда транспортных средств;
+              li размещение гостей, подбор обслуживающего персонала;
+              li трансфер из аэропорта и обратно;
+              li круглосуточная консультация со специалистами по всем возникающим вопросам.
+          .p-about__sale.p-about__text.p-about__part
+            h3 В спектр услуг по продаже входит:
+            ul
+              li ознакомительная поездка на объект перед покупкой;
+              li круглосуточная консультация с нашими специалистами по любому вопросу, связанному с приобретением недвижимости;
+              li полное сопровождение сделки, помощь в получении визы, открытии счета в банке;
+              li юридическая поддержка на каждом этапе сотрудничества;
+              li помощь в адаптации в стране, организация быта.
+
+    section.request.request--white
+      .container
+        p.request__title ОСТАЛИСЬ ВОПРОСЫ?
+          br
+          | свяжитесь с нами и мы обязательно вам поможем!
+        .request__form.flex.jc-sb.ai-fe.fw-w
+          .request__form-inputs.inline-flex.ai-e.jc-sb.fw-w
+            .form__group
+              .form__group-input
+                input(type="text" class="only-text-input" placeholder="Имя*" required )
+              span.form__group-message Ошибка
+            .form__group
+              .form__group-input
+                input(type="tel" class="only-numbers-input" placeholder="Телефон*" required )
+              span.form__group-message Ошибка
+            .form__group
+              .form__group-input
+                input(type="email" placeholder="E-mail")
+              span.form__group-message Ошибка
+            .form__group.form__group--textarea
+              .form__group-input
+                input(type="text" placeholder="Сообщение")
+              span.form__group-message Ошибка
+          button.btn.request__form-btn Отправить

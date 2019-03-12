@@ -1,0 +1,50 @@
+extends ../includes/_layout
+
+block header
+  include ../includes/_header
+
+block main
+  main.main
+    - var breadcrumbs = ['PrivetPhuket', 'Пляжи'];
+    include ../includes/_breadcrumbs
+    section.news-inner
+      .container
+        p.caption Пляжи пхукета
+        .news-inner__items.flex.fw-w.ai-s.jc-fs.mt
+          .news__item.beach-item(style="background-image: url('./img/beach-img.jpg')")
+            a(href="#").beach-item__title
+              span Лагуна
+          .news__item.beach-item(style="background-image: url('./img/beach-img.jpg')")
+            a(href="#").beach-item__title
+              span Лагуна
+          .news__item.beach-item(style="background-image: url('./img/beach-img.jpg')")
+            a(href="#").beach-item__title
+              span Лагуна
+          .news__item.beach-item(style="background-image: url('./img/beach-img.jpg')")
+            a(href="#").beach-item__title
+              span Лагуна
+          .news__item.beach-item(style="background-image: url('./img/beach-img.jpg')")
+            a(href="#").beach-item__title
+              span Лагуна
+          .news__item.beach-item(style="background-image: url('./img/beach-img.jpg')")
+            a(href="#").beach-item__title
+              span Лагуна
+
+
+        .dots__pagination.mt
+          ul
+            li
+              a(href="#")
+                span
+            li.current
+              a(href="#")
+                span
+            li
+              a(href="#")
+                span
+            li
+              a(href="#")
+                span
+            li
+              a(href="#")
+                span

@@ -16,6 +16,8 @@ $green: #00b184
 h1, h2, h3, b, strong
   font-weight: normal
   font-family: $bold
+
+h1, h2, h3
   text-transform: uppercase
 
 h1
@@ -32,6 +34,9 @@ body
   font-size: 16px
   font-family: $reg, Arial, sans-serif
   -webkit-font-smoothing: antialiased
+
+.fancybox-bg
+  background: rgba(#000, .5)
 
 select
   display: none
@@ -100,6 +105,70 @@ body
 .footer
   width: 100%
 
+.p-reviews
+  .swiper-container
+    padding-bottom: 10px
+    padding-right: 10px
+    margin-right: -10px
+  .reviews__controls
+    bottom: 10px
+    right: 10px
+  &__action
+    margin-top: 5.625rem
+  &__form
+    width: 55.54%
+    position: relative
+    z-index: 0
+    background-color: #ffffff
+    box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.07)
+    padding: 5.3125rem 6.4% 5.9375rem
+    .modal__form-btn
+      margin-top: 4.375rem
+    .form__group
+      width: 42.42%
+      margin-bottom: 2.8125rem
+      &.form__group--textarea
+        width: 100%
+        margin-bottom: 0
+  &__title
+    padding: 0
+    margin: 0
+    text-transform: uppercase
+    font-size: 1.5em
+    letter-spacing: 0.001em
+    b
+      letter-spacing: 0.025em
+      font-size: 1.91666667em
+      color: #303030
+      font-family: $extra
+      display: block
+      margin-top: 3px
+  &__slider
+    .swiper-button-prev,
+    .swiper-button-next
+      background: $red
+      padding: 0
+      width: 40px
+      height: 40px
+      position: relative
+      left: auto
+      top: auto
+      bottom: auto
+      right: auto
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      line-height: 1
+      svg
+        fill: #fff
+        width: 14px
+        height: 14px
+    .swiper-button-prev
+      svg
+        transform: rotate(-180deg)
+    .swiper-button-next
+      margin-left: 5px
+
 body
   .scrollbar-track
     background-color: rgba(#303030, .5)
@@ -141,9 +210,6 @@ body
 .main
   flex: 1
   width: 100%
-  overflow: hidden
-  padding-bottom: 16px
-  margin-top: -16px
 
 .video-player
   &__overlay
@@ -158,10 +224,12 @@ body
     height: 100%
     left: 0
     top: 0
+    visibility: hidden
   &.active
     .video-player__overlay
       opacity: 1
       transform: scale(1)
+      visibility: visible
   .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]
     background: #abb4c1
   .plyr--full-ui input[type=range]
@@ -169,13 +237,13 @@ body
   .plyr__control.plyr__tab-focus
     box-shadow: none
   .plyr__video-embed + button
-    background: #abb4c1 url('../img/player-icon.svg') no-repeat center
+    background: #abb4c1 url('../img/player-icon.svg') no-repeat center !important
     background-size: 100%
     width: 32px
     height: 32px
     transform: none
     margin-left: -16px
-    margin-bottom: -16px
+    margin-top: -16px
     padding: 0
     box-shadow: 0px 0px 0px 10px rgba(#fff, .2)
     &:hover
@@ -184,12 +252,96 @@ body
     svg
       display: none
 
+.sale
+  .p-product__condition
+    display: flex
+    align-items: flex-end
+    justify-content: space-between
+    .p-product__price
+      margin-right: 16px
+    .p-product__cta-btn
+      width: auto
+      margin-top: 0
+  .p-product__advantages
+    margin-top: 3.4375rem
+  .p-product__map
+    margin-top: 3.75rem
+  .p-product__video
+    margin-top: 5.9375rem
+
+.p-about
+  &__services
+    margin-top: 5.625rem
+  &__part
+    width: 42.62%
+    ul
+      margin-top: 1.3em
+      li
+        &:not(:last-of-type)
+          margin-bottom: 1.2em
+        &:last-of-type
+          margin-bottom: 0
+  &__text
+    font-size: 0.9375em
+    letter-spacing: 0.001em
+    line-height: 1.71428571
+    h3
+      font-size: 0.9375em
+    p ~ ul
+      margin-top: -1.5em
+    *:first-child
+      margin-top: 0
+    *:last-child
+      margin-bottom: 0
+    p
+      margin-block-start: 1.5em
+      margin-block-end: 1.5em
+    ul
+      list-style-type: none
+      padding: 0
+      li
+        position: relative
+        &:before
+          display: inline-block
+          vertical-align: middle
+          content: ''
+          width: 4px
+          margin-right: 14px
+          height: 4px
+          background-color: $red
+  &__info
+    flex: 1
+    padding-left: 9.2%
+  &__images
+    position: relative
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    width: 49.03%
+    z-index: 0
+    min-height: 41.25rem
+    &-left
+      bottom: 0
+      left: 0
+    &-right
+      top: 0
+      z-index: 1
+      right: 0
+    &-img
+      height: 87.87%
+      width: 65.35%
+      position: absolute
+      background-position: 50% 50%
+      background-size: cover
+      background-repeat: no-repeat
+
 .p-product
   &__reviews
     &-title
       padding: 0
       margin: 0
-      margin-right: 1.2rem
+      white-space: nowrap
+      margin-right: 22px
     &-item
       display: flex
       align-items: flex-start
@@ -294,7 +446,7 @@ body
         width: 100%
   &__advantage
     display: inline-flex
-    align-items: center
+    align-items: flex-start
     color: #161616
     font-size: .875em
     justify-content: flex-start
@@ -330,6 +482,9 @@ body
     &-btn
       margin-top: 1rem
       width: 100%
+      white-space: nowrap
+      display: inline-block
+      text-decoration: none
       &.btn
         padding-top: 1rem
         padding-bottom: .8rem
@@ -414,7 +569,7 @@ body
       align-items: flex-start
       justify-content: space-between
       &:not(:last-of-type)
-        margin-bottom: 12px
+        margin-bottom: 3px
     &--key
       width: 53.65%
       font-family: $med
@@ -425,6 +580,7 @@ body
       padding-left: 1.25rem
       padding: 0
       margin: 0
+      line-height: 1.71428571
     a.p-product__attrs--val
       color: $red
       text-decoration: underline
@@ -721,6 +877,13 @@ input[type="submit"]
   cursor: pointer
 
 .modal
+  &__title
+    text-align: center
+    font-family: $bold
+    text-transform: uppercase
+    color: #1a1a1a
+    padding: 0
+    margin: 0
   &-close
     position: absolute
     right: 16px
@@ -736,6 +899,60 @@ input[type="submit"]
       fill: #7a7a7a
       width: 12px
       height: 12px
+  &.calendar-modal
+    .daterangepicker
+      position: initial
+      overflow: hidden
+      margin: 0
+      display: flex !important
+      min-width: 450px
+      width: 100% !important
+  &.reviews-modal
+    .p-product__reviews-info-rating
+      width: 100%
+      justify-content: flex-start
+      margin-bottom: 1.3rem
+  &.book-success
+    text-align: center
+    color: #1a1a1a
+    max-width: 1020px
+    width: 100%
+    padding: 7.1875rem 2rem 6.5625rem
+    .book-success__descr
+      padding: 0
+      margin: 3.75rem auto 0
+      font-size: 1.0625em
+      line-height: 1.41176471
+      max-width: 445px
+      width: 100%
+    .book-success__title
+      padding: 0
+      font-family: $bold
+      margin: 0
+      text-transform: uppercase
+      b
+        margin-top: 4px
+        text-transform: none
+        font-size: 2.125em
+        display: block
+  &.book-modal
+    padding: 7.1875rem 11.25rem
+    width: 1020px
+    max-width: 100%
+    .modal__form-btn
+      margin-top: 3.75rem
+    .modal__form
+      display: flex
+      margin-top: 3.6rem
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: flex-end
+    .form__group
+      width: 42.45%
+      margin-bottom: 2.8125rem
+      &.form__group--textarea
+        width: 100%
+        margin-bottom: 0
   &.callback-modal
     min-width: 30.0625rem
     text-align: center
@@ -748,10 +965,6 @@ input[type="submit"]
       margin-bottom: 1.875rem
       &:last-of-type
         margin-bottom: 0
-    .modal__title
-      font-family: $bold
-      text-transform: uppercase
-      color: #1a1a1a
     .modal__form
       margin-top: 2.25rem
   &__form
@@ -815,6 +1028,40 @@ input[type="submit"]
 
 .mt
   margin-top: 3.75rem !important
+
+.p-beach
+  &__top
+    margin-top: 3.5rem
+    &-info
+      flex: 1
+      font-size: .875em
+      padding-left: 4.9%
+      line-height: 1.57142857
+      display: inline-flex
+      align-self: center
+      p
+        margin-block-start: 1.9em
+        margin-block-end: 1.9em
+    .p-product__gallery
+      width: 62.85%
+      max-width: 980px
+
+.beach
+  &-item
+    &__title
+      width: 100%
+      background-color: #ffffff
+      font-family: $bold
+      text-transform: uppercase
+      text-align: center
+      min-height: 4.0625rem
+      padding: 10px
+      color: inherit
+      text-decoration: none
+      display: flex
+      align-items: center
+      justify-content: center
+
 
 .btn
   border: 0
@@ -1874,6 +2121,10 @@ input[type="submit"]
 .request
   background-color: #f6f6f6
   padding: 5.3125rem 0
+  &.request--white
+    background-color: #ffffff
+    padding: 0
+    margin-top: 7.5rem
   &__title
     font-size: 1.5em
     text-transform: uppercase
@@ -2205,6 +2456,10 @@ input[type="submit"]
 @media screen and (max-width: 1450px)
   .header__nav
     margin-right: 9rem
+  .sale
+    .p-product__cta-btn.btn
+      padding-left: 2.5rem
+      padding-right: 2.5rem
   .header__logo
     margin-right: 2.6rem
   .header__socials
@@ -2273,6 +2528,12 @@ input[type="submit"]
 @media screen and (max-width: 1199px)
   html
     font-size: 14px
+  .p-about__images
+    min-height: 34.25rem
+  .p-product__reviews-content
+    padding: 3.4375rem 21% 3.4375rem 5.3%
+  .p-product__video
+    width: 67%
   .p-product__form-right
     width: 42%
   .p-product__title
@@ -2347,6 +2608,8 @@ input[type="submit"]
     flex-basis: 100%
   .request__form-btn
     margin-top: 2.2rem
+  .modal.book-modal
+    padding: 6rem 12%
 
 @media screen and (max-width: 991px)
   html
@@ -2355,6 +2618,34 @@ input[type="submit"]
     font-size: 1.4em
   h2
     font-size: 1.15em
+  .p-about__images-img
+    width: 80%
+  .p-about__info
+    padding-left: 5.5%
+  .p-beach__top-info
+    flex-basis: 100%
+    width: 100%
+    margin-top: 1rem
+    padding-left: 0
+  .sale
+    .p-product__condition
+      flex-direction: column
+      align-items: center
+      justify-content: flex-start
+      .p-product__price
+        margin-right: 0
+      .p-product__cta-btn.btn
+        margin-top: 1rem
+  .p-product__reviews-content
+    padding: 3.4375rem 15% 3.4375rem 4.5%
+  .p-product__video
+    width: 75%
+  .p-product__advantage
+    width: 23.5%
+    &:not(:nth-of-type(4n))
+      margin-right: 2%
+    &:nth-of-type(4n)
+      margin-right: 0
   .p-product__form
     padding-left: 4%
   .p-product__form-right
@@ -2524,6 +2815,10 @@ input[type="submit"]
     width: 23%
     &.form__group--textarea
       width: 23%
+  .p-about__images-img
+    width: 96%
+  .p-about__info
+    padding-left: 6%
   .p-product__form
     padding-left: 0
     width: 100%
@@ -2558,6 +2853,52 @@ input[type="submit"]
     padding-bottom: 5rem !important
   .mt
     margin-top: 2.4rem !important
+  .p-about__part
+    width: 100%
+    &:not(:last-of-type)
+      margin-bottom: 3rem
+  .p-about__top
+    flex-wrap: wrap
+  .p-about__info
+    width: 100%
+    flex-basis: 100%
+    padding-left: 0
+    margin-top: 3rem
+  .p-about__images
+    margin-left: auto
+    margin-right: auto
+    width: 60%
+    min-height: 28rem
+  .p-about__images-img
+    width: 65%
+  .request.request--white
+    margin-top: 4.5rem
+  .modal.book-modal
+    padding: 5rem 8%
+  .modal.book-modal .form__group
+    width: 46%
+  .p-beach__top .p-product__gallery
+    width: 80%
+  .sale
+    .p-product__condition
+      width: 100%
+      flex-direction: row
+      align-items: flex-end
+      justify-content: center
+      .p-product__price
+        margin-right: 25px
+      .p-product__cta-btn.btn
+        margin-top: 0
+  .p-product__video
+    width: 85%
+  .p-product__reviews-content
+    padding: 3.4375rem 8% 3.4375rem 2%
+  .p-product__advantage
+    width: 31%
+    &:not(:nth-of-type(3n))
+      margin-right: 3.5%
+    &:nth-of-type(3n)
+      margin-right: 0
   .p-product__top
     margin-top: 2.5rem
   .p-product__title
@@ -2668,11 +3009,16 @@ input[type="submit"]
     justify-content: space-between
 
 @media screen and (max-width: 620px)
+  .modal.calendar-modal .daterangepicker
+    flex-direction: column
+    min-width: auto
   .news-inner
     .news__item
       width: 100%
       margin-left: 0
       margin-right: 0
+  .p-product__reviews-content
+    padding: 3.4375rem 0% 3.4375rem 0%
   .news-inner__items
     margin-left: 0
     margin-right: 0
@@ -2685,11 +3031,28 @@ input[type="submit"]
     flex-wrap: wrap
     justify-content: center
 
+@media screen and (max-width: 600px)
+  .p-about__images
+    width: 80%
+    min-height: 25rem
+
 @media screen and (max-width: 500px)
   .header__contacts
     display: none
+  .p-beach__top .p-product__gallery
+    width: 100%
+  .modal.book-modal .form__group
+    width: 100%
   .p-contacts__form-inputs .form__group
     width: 100%
+  .p-product__video
+    width: 100%
+  .p-product__advantage
+    width: 47%
+    &:not(:nth-of-type(2n))
+      margin-right: 6%
+    &:nth-of-type(2n)
+      margin-right: 0
   .p-product__form-left,
   .p-product__form-right,
   .p-product__calendar
@@ -2736,6 +3099,49 @@ input[type="submit"]
     padding-bottom: 4.2rem !important
   .mt
     margin-top: 2.1em !important
+  .p-about__images
+    width: 100%
+  .p-about__images-img
+    width: 80%
+  .sale
+    .p-product__condition
+      flex-direction: column
+      align-items: center
+      justify-content: flex-start
+      .p-product__price
+        margin-right: 0
+      .p-product__cta-btn.btn
+        margin-top: 1rem
+  .p-product__reviews-top
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+  .p-product__reviews-title
+    margin-right: 0
+  .p-product__reviews-link
+    margin-top: .8rem
+  .p-product__reviews-item
+    flex-wrap: wrap
+    justify-content: center
+  .p-product__reviews-info
+    flex-basis: 100%
+    width: 100%
+    padding-left: 0
+    margin-top: 2rem
+  .p-product__reviews-info-top
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+  .p-product__reviews-info-personal
+    padding-right: 0
+  .p-product__reviews-info-rating
+    margin-top: .5rem
+  .p-product__reviews-info-personal
+    width: 100%
+    text-align: center
+  .p-product__reviews-inner
+    padding-left: 2rem
+    padding-right: 2rem
   .catalog__top
     flex-direction: column
     justify-content: flex-start
@@ -2779,6 +3185,14 @@ input[type="submit"]
 @media screen and (max-width: 400px)
   .footer__top
     width: 100%
+  .calendar-modal
+    padding-left: 0
+    padding-right: 0
+    width: 100%
+    text-align: center
+  .modal.calendar-modal .daterangepicker
+    width: auto !important
+    display: inline-flex !important
 
 
 @media screen and (max-width: 380px)

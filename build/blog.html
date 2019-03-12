@@ -214,6 +214,66 @@
             </div><button class="btn modal__form-btn">Жду звонка</button>
         </form>
     </div>
+    <div class="modal callback-modal" id="sale-modal" style="display: none">
+        <p class="modal__title">оставить заявку</p>
+        <form class="modal__form">
+            <div class="form__group">
+                <div class="form__group-input"><input class="only-text-input" type="text" placeholder="Имя*" required></div><span class="form__group-message">Ошибка</span>
+            </div>
+            <div class="form__group">
+                <div class="form__group-input"><input class="only-numbers-input" type="tel" placeholder="Введите ваш номер*" required></div><span class="form__group-message">Ошибка</span>
+            </div>
+            <div class="form__group form__group--textarea">
+                <div class="form__group-input"><input type="text" placeholder="Сообщение"></div><span class="form__group-message">Ошибка</span>
+            </div><button class="btn modal__form-btn">Отправить</button>
+        </form>
+    </div>
+    <div class="modal book-modal" id="book-modal" style="display: none">
+        <p class="modal__title">Забронировать</p>
+        <form class="modal__form">
+            <div class="form__group">
+                <div class="form__group-input"><input class="calendar-input" type="text" placeholder="Желаемая дата*" required></div><span class="form__group-message">Ошибка</span>
+            </div>
+            <div class="form__group">
+                <div class="form__group-input"><input class="only-text-input" type="text" placeholder="ФИО*" required></div><span class="form__group-message">Ошибка</span>
+            </div>
+            <div class="form__group">
+                <div class="form__group-input"><input class="only-numbers-input" type="tel" placeholder="Телефон*" required></div><span class="form__group-message">Ошибка</span>
+            </div>
+            <div class="form__group">
+                <div class="form__group-input"><input type="email" placeholder="E-mail*" required></div><span class="form__group-message">Ошибка</span>
+            </div>
+            <div class="form__group form__group--textarea">
+                <div class="form__group-input"><input type="text" placeholder="Сообщение"></div><span class="form__group-message">Ошибка</span>
+            </div><button class="btn modal__form-btn">Отправить</button>
+        </form>
+    </div>
+    <div class="modal calendar-modal" id="calendar-modal" style="display: none"></div>
+    <div class="modal book-success" id="book-success" style="display: none">
+        <p class="book-success__title">Спасибо, что выбрали<b>PrivetPhuket</b></p>
+        <p class="book-success__descr">Ваша заявка отправлена.<br>В ближайшее время наш специалист свяжется с вами для уточнения деталей.</p>
+    </div>
+    <div class="modal book-modal reviews-modal" id="reviews-modal" style="display: none">
+        <p class="modal__title">Оставить отзыв<form class="modal__form">
+                <ul class="p-product__reviews-info-rating flex jc-fe">
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                </ul>
+                <div class="form__group">
+                    <div class="form__group-input"><input class="only-text-input" type="text" placeholder="Ваше имя*" required></div><span class="form__group-message">Ошибка</span>
+                </div>
+                <div class="form__group">
+                    <div class="form__group-input"><input class="only-numbers-input" type="email" placeholder="E-mail*" required></div><span class="form__group-message">Ошибка</span>
+                </div>
+                <div class="form__group form__group--textarea">
+                    <div class="form__group-input"><input type="text" placeholder="Отзыв*"></div><span class="form__group-message">Ошибка</span>
+                </div><button class="btn modal__form-btn">Отправить</button>
+            </form>
+        </p>
+    </div>
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu__inner flex jc-sb fd-c"><a class="logo mobile-menu__logo mobile-menu--p" href="#"><img src="./img/logo--white.png" alt="test"></a>
             <nav class="mobile-menu__nav mobile-menu--p">

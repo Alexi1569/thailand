@@ -7,7 +7,7 @@ block main
   main.main
     - var breadcrumbs = ['PrivetPhuket', 'Аренда', 'Апартаменты', 'The frorids hotel & Conference center in the Florida mall - BW premier collection'];
     include ../includes/_breadcrumbs
-    section.rent.p-product
+    section.sale.p-product
       .container
         p.p-product__title The Florida Hotel & Conference Center in the Florida Mall – BW Premier Collection
         .p-product__top.flex.ai-s.jc-sb
@@ -63,7 +63,13 @@ block main
                   p.p-product__attrs--key Пляж
                   p.p-product__attrs--val Лайян
                 .p-product__attrs-row
+                  p.p-product__attrs--key Построен
+                  p.p-product__attrs--val 2015 год
+                .p-product__attrs-row
                   p.p-product__attrs--key Этаж
+                  p.p-product__attrs--val 3
+                .p-product__attrs-row
+                  p.p-product__attrs--key Спальни
                   p.p-product__attrs--val 3
                 .p-product__attrs-row
                   p.p-product__attrs--key Кухни
@@ -71,54 +77,18 @@ block main
                 .p-product__attrs-row
                   p.p-product__attrs--key Ванные комнаты
                   p.p-product__attrs--val 1
+                .p-product__attrs-row
+                  p.p-product__attrs--key Дополнительно
+                  p.p-product__attrs--val встроенная бытовая техника
+                    br
+                    | от застройщика
+                    br
+                    | доплата за фрихолд
+
 
             .p-product__condition
-              p.p-product__general-title Условия оплаты
-              ul.p-product__condition-list
-                li 50% депозит при бронировании
-                li 50% остаток за 30 дней до заселения
-                li при заселении вносится возвратный страховой депозит
-                li в низкий сезон условия могут быть более гибкими
-        .p-product__bottom.flex.fw-w.jc-sb
-          .p-product__calendar
-            p.p-product__general-title Календарь
-            .p-product__calendar-view.p-product__bottom--m
-              .p-product__calendar-spacer
-              input(type="text" id="calendar-visible" style="display: none")
-          form.p-product__form.inline-flex.jc-sb
-            .p-product__form-left
-              p.p-product__general-title сезон
-              .p-product__general-inputs.p-product__bottom--m
-                label.p-product__general-input
-                  input(type="radio" name="season")
-                  span 1 Нояб - 23 Дек
-                label.p-product__general-input
-                  input(type="radio" name="season")
-                  span 24 Дек - 10 Янв
-                label.p-product__general-input
-                  input(type="radio" checked name="season")
-                  span 11 Янв - 31 Мар
-                label.p-product__general-input
-                  input(type="radio" name="season")
-                  span 1 Апр - 31 Июня
-                label.p-product__general-input
-                  input(type="radio" name="season")
-                  span 1 Июля - 31 Окт
-            .p-product__form-right.inline-flex.fd-c.jc-sb
-              .p-product__period
-                p.p-product__general-title срок
-                .p-product__general-inputs.p-product__bottom--m
-                  label.p-product__general-input
-                    input(type="radio" checked name="period")
-                    span Посуточно
-                  label.p-product__general-input
-                    input(type="radio" name="period")
-                    span Месяц
-              .p-product__cta
-                .p-product__cta-top.flex.jc-sb.ai-c
-                  p.p-product__price 30 000 THB
-                  p.p-product__tooltip (точную сумму Вам огласит менеджер)
-                a(href="#" data-src="#book-modal" data-fancybox).btn.p-product__cta-btn забронировать
+              p.p-product__price 52 849 €
+              a(href="#" data-src="#sale-modal" data-fancybox).btn.p-product__cta-btn Оставить заявку
 
         .p-product__advantages
           p.p-product__general-title Услуги и удобства
@@ -164,83 +134,10 @@ block main
                 <svg width="7" height="6"><use xlink:href="#check-icon" /></svg>
               span Холодильник
 
-        .p-product__map.pt
+        .p-product__map
           .p-product__map-inner#product-map
             iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d325518.68780316407!2d30.252511957059642!3d50.4016990487754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1552310165224" frameborder="0" style="border:0" allowfullscreen)
 
-        .p-product__video.pt.video-player
+        .p-product__video.video-player
           .plyr__video-embed.video-item(data-plyr-provider="youtube" data-plyr-embed-id="bTqVqk7FSmY")
-
-        .p-product__reviews.pt
-          .p-product__reviews-inner
-            .p-product__reviews-top.flex.jc-sb
-              p.p-product__reviews-title Комментариев (
-                span 3
-                | )
-              a(href="#" data-src="#reviews-modal" data-fancybox).p-product__reviews-link Хотите оставить отзыв?
-            .p-product__reviews-content
-              .p-product__reviews-item
-                i.p-product__reviews-icon
-                  img(src="./img/review-1.png" alt="1")
-                .p-product__reviews-info
-                  .p-product__reviews-info-top.flex.jc-sb.ai-fs.ai-fs
-                    .p-product__reviews-info-personal
-                      p.p-product__reviews-name Sally
-                      p.p-product__reviews-date 21.07.2018
-                    ul.p-product__reviews-info-rating.flex.jc-fe
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li
-                        span
-                  .p-product__reviews-text
-                    p Beautiful, well located, cafe and massage are really close, friendly staff, relax atmosphere, walkable distance to the airport shuttle. Overall a great value.
-              .p-product__reviews-item
-                i.p-product__reviews-icon
-                  img(src="./img/review-2.png" alt="1")
-                .p-product__reviews-info
-                  .p-product__reviews-info-top.flex.jc-sb.ai-fs.ai-fs
-                    .p-product__reviews-info-personal
-                      p.p-product__reviews-name Makoto
-                      p.p-product__reviews-date 21.07.2018
-                    ul.p-product__reviews-info-rating.flex.jc-fe
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                  .p-product__reviews-text
-                    p his hotel was situated in the old wall but the renovation was carried out perfectly. Ambience of the room was nice and the facilities are more than enough.Though the receptionist were not attended almost throughout the day ,they attended at the time of checkin/checkout and no problem at all. We stayed 4 nights here and very convenient to walk around the city and to go out for the dinner.
-              .p-product__reviews-item
-                i.p-product__reviews-icon
-                  img(src="./img/review-3.png" alt="1")
-                .p-product__reviews-info
-                  .p-product__reviews-info-top.flex.jc-sb.ai-fs.ai-fs
-                    .p-product__reviews-info-personal
-                      p.p-product__reviews-name Laura
-                      p.p-product__reviews-date 21.07.2018
-                    ul.p-product__reviews-info-rating.flex.jc-fe
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                      li.star--filled
-                        span
-                  .p-product__reviews-text
-                    p Fabulous location ! Simona was a great host too. Will be back to discover more about wonderful Split !
-
 
