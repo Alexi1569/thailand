@@ -93,9 +93,6 @@ gulp.task('js-libs-optimize', function() {
 gulp.task('js-optimize', function() {
   return gulp
     .src(['app/libs/jquery-3.3.1.min.js', 'app/js/main.js'])
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
     .pipe(gulp.dest('build/js'))
     .pipe(browserSync.stream());
 });

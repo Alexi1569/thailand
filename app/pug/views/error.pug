@@ -1,0 +1,18 @@
+extends ../includes/_layout
+
+block header
+  include ../includes/_header
+
+block main
+  main.main.flex.fd-c.ai-c.jc-c
+    - var isFooter = true;
+    section.p-error
+      .container
+        .p-error__content
+          p.p-error__text(data-text="404") 404
+          p.p-error__info Простите, эта страница недоступна
+          a(href="#").link.p-error__link
+            span Перейти на главную
+            i.btn
+              <svg><use xlink:href="#arrow-right-icon" /></svg>
+

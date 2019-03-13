@@ -13,6 +13,9 @@ $green: #00b184
   &:focus
     outline: none
 
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled
+  opacity: .6
+
 h1, h2, h3, b, strong
   font-weight: normal
   font-family: $bold
@@ -106,13 +109,6 @@ body
   width: 100%
 
 .p-reviews
-  .swiper-container
-    padding-bottom: 10px
-    padding-right: 10px
-    margin-right: -10px
-  .reviews__controls
-    bottom: 10px
-    right: 10px
   &__action
     margin-top: 5.625rem
   &__form
@@ -136,6 +132,7 @@ body
     text-transform: uppercase
     font-size: 1.5em
     letter-spacing: 0.001em
+    margin-right: 2rem
     b
       letter-spacing: 0.025em
       font-size: 1.91666667em
@@ -334,6 +331,27 @@ body
       background-position: 50% 50%
       background-size: cover
       background-repeat: no-repeat
+
+.custom-map
+  height: 435px
+  img[src^="../img/marker"]
+
+.p-map
+  &__render
+    height: 100%
+  &__inner
+    height: 750px
+    position: relative
+    z-index: 0
+  &__product
+    position: absolute
+    right: 0
+    top: 50%
+    display: none
+    transform: translateY(-50%)
+    z-index: 1
+    &.products__item.products__item--small
+      width: 540px
 
 .p-product
   &__reviews
@@ -1247,6 +1265,43 @@ input[type="submit"]
       margin-right: 15px
       margin-bottom: 30px
 
+.link
+  color: #303030
+  font-size: .875em
+  letter-spacing: 0.001em
+  font-family: $bold
+  display: inline-flex
+  align-items: center
+  justify-content: flex-start
+  text-decoration: none
+  &:hover
+    color: $red
+    i
+      &:before
+        right: 3px
+        bottom: 3px
+      &:after
+        right: -3px
+        bottom: -3px
+        box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.2)
+  span
+    display: inline-block
+    margin-right: 18px
+    transition: .25s all ease-in
+  i
+    display: inline-flex
+    background-color: $red
+    padding: 0
+    width: 20px
+    height: 20px
+    align-items: center
+    justify-content: center
+    line-height: 1
+    svg
+      width: 7px
+      height: 7px
+      fill: #fff
+
 .logo
   display: inline-block
 
@@ -1628,6 +1683,8 @@ input[type="submit"]
   text-transform: uppercase
   text-align: center
   position: relative
+  &.caption--small
+    font-size: 1.125em
   &.caption--left
     text-align: left
   &.caption--bg
@@ -1954,6 +2011,7 @@ input[type="submit"]
     width: calc(50% - 2.5rem)
     max-width: 740px
     margin-bottom: 5rem
+    background-color: #ffffff
 
     //opacity: 0
     //transform: translateY(10%)
@@ -2189,10 +2247,19 @@ input[type="submit"]
         background-color: #3d3d3d
 
 .reviews
-  .swiper-wrapper
-    z-index: -1
   &__slider
     z-index: 0
+    .swiper-wrapper
+      z-index: -1
+    .swiper-container
+      padding-bottom: 10px
+      padding-right: 10px
+      margin-right: -10px
+    .reviews__controls
+      bottom: 10px
+      right: 10px
+    .swiper-button-next, .swiper-button-prev
+      margin-top: 0
   &__controls
     position: absolute
     bottom: 0
@@ -2219,13 +2286,17 @@ input[type="submit"]
       opacity: 0
   &__text
     width: 100%
-    padding-bottom: 2.5rem
+    padding-bottom: 3.5rem
     flex: 1
     margin-top: 1.8rem
     color: #191919
     opacity: 0
     font-size: 0.9375em
     line-height: 1.6
+    *:first-child
+      margin-top: 0
+    *:last-child
+      margin-bottom: 0
     p
       margin-top: 1.3em
       margin-bottom: 1.3em
@@ -2300,6 +2371,45 @@ input[type="submit"]
     overflow: hidden
     padding: 0
     line-height: 1.33333333
+
+.p-error
+  border-top: 1px solid #e2e2e2
+  height: 100%
+  width: 100%
+  flex: 1
+  text-align: center
+  display: flex
+  align-items: center
+  &__content
+    padding: 3rem 0
+  &__link
+    margin-top: 1.5rem
+  &__info
+    padding: 0
+    margin: 0
+    font-family: $bold
+    font-size: 1.375em
+    letter-spacing: 0.025em
+  &__text
+    font-size: 18.75em
+    line-height: 1
+    font-family: $extra
+    padding: 0
+    display: inline-block
+    margin: 0
+    background-image: url('../img/error-img.jpg')
+    background-repeat: no-repeat
+    background-position: 50% 50%
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    position: relative
+    &:after
+      content: attr(data-text)
+      position: absolute
+      left: 0
+      top: 0
+      text-shadow: 2.801px 1.075px 10px rgba(0, 0, 0, 0.25)
+      z-index: -1
 
 .breadcrumbs
   border-top: 1px solid #e2e2e2
@@ -2528,6 +2638,13 @@ input[type="submit"]
 @media screen and (max-width: 1199px)
   html
     font-size: 14px
+  .p-error__text
+    font-size: 15em
+  .p-reviews__form
+    width: 60%
+  .p-reviews__title b
+    font-size: 1.8em
+    margin-top: 0
   .p-about__images
     min-height: 34.25rem
   .p-product__reviews-content
@@ -2618,6 +2735,14 @@ input[type="submit"]
     font-size: 1.4em
   h2
     font-size: 1.15em
+  .p-error__text
+    font-size: 12em
+  .p-reviews__form
+    width: 70%
+    padding-top: 4.5rem
+    padding-bottom: 4.5rem
+  .p-reviews__title b
+    font-size: 1.7em
   .p-about__images-img
     width: 80%
   .p-about__info
@@ -2815,6 +2940,20 @@ input[type="submit"]
     width: 23%
     &.form__group--textarea
       width: 23%
+  .p-reviews__title
+    margin-right: 0
+  .p-reviews__form
+    width: 100%
+    margin-top: 2.5rem
+  .p-reviews__form .modal__form-btn
+    margin-left: auto
+    margin-right: auto
+  .p-reviews__title b
+    font-size: 1.8em
+  .p-reviews__action
+    flex-wrap: wrap
+    justify-content: center
+    text-align: center
   .p-about__images-img
     width: 96%
   .p-about__info
@@ -2859,6 +2998,8 @@ input[type="submit"]
       margin-bottom: 3rem
   .p-about__top
     flex-wrap: wrap
+  .p-error__text
+    font-size: 9em
   .p-about__info
     width: 100%
     flex-basis: 100%
@@ -2935,7 +3076,7 @@ input[type="submit"]
     position: initial
     justify-content: center
   .reviews__text
-    padding-bottom: 1rem
+    padding-bottom: 2rem
   .reviews__item
     flex-wrap: wrap
     justify-content: flex-start
@@ -3101,8 +3242,12 @@ input[type="submit"]
     margin-top: 2.1em !important
   .p-about__images
     width: 100%
+  .p-reviews__title
+    font-size: 1.2em
   .p-about__images-img
     width: 80%
+  .p-reviews__form .form__group
+    width: 100%
   .sale
     .p-product__condition
       flex-direction: column

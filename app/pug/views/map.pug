@@ -1,0 +1,33 @@
+extends ../includes/_layout
+
+block header
+  include ../includes/_header
+
+block main
+  main.main
+    - var breadcrumbs = ['PrivetPhuket', 'Карта'];
+    - var isFooter = true;
+    include ../includes/_breadcrumbs
+    section.p-map
+      .p-map__inner
+        .custom-map.p-map__render
+        .p-map__product.products__item.products__item--small#map-product
+          a(href="#").products__item-title.products__item--gutters
+            p
+          a(href="#").products__item-img
+            i.products__item-sale
+              <svg><use xlink:href="#fire-icon" /></svg>
+            img(src="" alt="alt")
+            .products__item-prices.inline-flex.jc-c.ai-c
+              .products__item-prices-inner.flex.jc-c.ai-b
+                p.products__item-price--sale
+                p.products__item-price--default
+          .products__item-info.flex.jc-sb.ai-c.products__item--gutters
+            .products__item-col.flex.ai-c
+              p.products__item-col--key Вид сделки:
+              p.products__item-col--val
+            .products__item-col.flex.ai-c
+              p.products__item-col--key Тип жилья:
+              p.products__item-col--val
+          .products__item-advantages.flex.ai-c.products__item--gutters
+
