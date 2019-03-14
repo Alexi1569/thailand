@@ -6,11 +6,16 @@ jQuery(document).ready(function ($) {
   window.scrollTopOffset = 0;
 
   var Scrollbar = window.Scrollbar;
+  var scrollbar;
 
-  var scrollbar = Scrollbar.init(document.querySelector('#page'), {
-    damping: .1,
-    alwaysShowTracks: true
-  });
+  function initScrollbar() {
+    scrollbar = Scrollbar.init(document.querySelector('#page'), {
+      damping: .1,
+      continuousScrolling: false
+    });
+  }
+
+  initScrollbar();
 
   $.fancybox.defaults.hideScrollbar = false;
   $.fancybox.defaults.touch = false;
@@ -78,6 +83,7 @@ jQuery(document).ready(function ($) {
       })
 
       $(this).on('select2:open', function(e) {
+        var $self = $(this);
         $(this).closest('.form__group').find('.select2-dropdown').css({
           'opacity': '0',
           'visibility': 'hidden',
@@ -85,11 +91,11 @@ jQuery(document).ready(function ($) {
         });
 
         setTimeout(function() {
-          $(this).closest('.form__group').find('.select2-dropdown').css({
+          $self.closest('.form__group').find('.select2-dropdown').css({
             'transition': '.45s transform ease-in-out, .45s visibility ease-in-out, .45s opacity ease-in-out, .45s box-shadow ease-in-out .18s'
           });
 
-          $(this).closest('.form__group').addClass('open');
+          $self.closest('.form__group').addClass('open');
         }, 0);
       });
 
@@ -109,30 +115,46 @@ jQuery(document).ready(function ($) {
     $('#header__search').toggleClass('active');
   });
 
-  $('.scroll-content').watch({
-    properties: "transform",
-    callback: function(data, i) {
-      var propChanged = data.props[i];
-      var newValue = data.vals[i];
-
-      var el = this;
-      var el$ = $(this);
-
-      window.scrollTopOffset = -parseInt(newValue.split('matrix(1, 0, 0, 1, 0, ')[1].split(')')[0], 10);
-
-      $('.products__item').each(function() {
-        if (window.scrollTopOffset + window.innerHeight > $(this).position().top ) {
-          if (!$(this).hasClass('visible')) {
-            $(this).addClass('visible');
-          }
-        } else {
-          if ($(this).hasClass('visible')) {
-            $(this).removeClass('visible');
-          }
-        }
-      });
+  $('.products__item').each(function() {
+    if (window.scrollTopOffset + window.innerHeight > $(this).position().top ) {
+      if (!$(this).hasClass('visible')) {
+        $(this).addClass('visible');
+      }
+    } else {
+      if ($(this).hasClass('visible')) {
+        $(this).removeClass('visible');
+      }
     }
   });
+
+  function initWatcher() {
+    $('.scroll-content').watch({
+      properties: "transform",
+      callback: function(data, i) {
+        var propChanged = data.props[i];
+        var newValue = data.vals[i];
+
+        var el = this;
+        var el$ = $(this);
+
+        window.scrollTopOffset = -parseInt(newValue.split('matrix(1, 0, 0, 1, 0, ')[1].split(')')[0], 10);
+
+        $('.products__item').each(function() {
+          if (window.scrollTopOffset + window.innerHeight > $(this).position().top ) {
+            if (!$(this).hasClass('visible')) {
+              $(this).addClass('visible');
+            }
+          } else {
+            if ($(this).hasClass('visible')) {
+              $(this).removeClass('visible');
+            }
+          }
+        });
+      }
+    });
+  }
+
+  initWatcher();
 
   (function initReviewsSlider() {
     var $slider = $('#reviews__slider');
@@ -148,6 +170,7 @@ jQuery(document).ready(function ($) {
       tl.to($current.find('.reviews__img-inner'), .8, {x: '0%',
           onStart: function() {
             mySwiper.detachEvents();
+            $(mySwiper.$el).addClass('disabled');
           }
         })
         .to($current.find('.reviews__img-inner'), .65, {autoAlpha: 1}, '-=.65')
@@ -157,8 +180,9 @@ jQuery(document).ready(function ($) {
         .to($current.find('.reviews__top-overlay'), .25, {x: '100%'})
         .to($current.find('.reviews__top-text'), .5, {x: 0, autoAlpha: 1}, '-=.25')
         .to($current.find('.reviews__text'), .5, {autoAlpha: 1,
-          onCompvare: function() {
+          onComplete: function() {
             mySwiper.attachEvents();
+            $(mySwiper.$el).removeClass('disabled');
           }
         }, '-=.05');
     }
@@ -174,9 +198,9 @@ jQuery(document).ready(function ($) {
       },
       pagination: {
         el: $slider.find('.swiper-pagination'),
-        type: 'bulvars',
+        type: 'bullets',
         clickable: true,
-        renderBulvar: function (index, className) {
+        renderBullet: function (index, className) {
           return '<button class="' + className + '"><span>' + (index + 1) + '</span></button>';
         }
       },
@@ -255,7 +279,7 @@ jQuery(document).ready(function ($) {
     var $btn = $('#header-mobile');
     var $menu = $('#mobile-menu');
 
-    var acc = document.querySelectorAll('.mobile-menu__nav svg');
+    var acc = document.querySelectorAll('.mobile-menu__nav i');
     var i;
 
     for (i = 0; i < acc.length; i++) {
@@ -273,11 +297,19 @@ jQuery(document).ready(function ($) {
     $('.mobile-menu__contacts .callback-btn').click(function() {
       $('#mobile-menu').removeClass('active');
       $btn.removeClass('active');
+      initScrollbar();
+      initWatcher();
     });
 
     $btn.click(function() {
       $(this).toggleClass('active');
       $('#mobile-menu').toggleClass('active');
+      if ($(this).hasClass('active')) {
+        Scrollbar.destroyAll();
+      } else {
+        initScrollbar();
+        initWatcher();
+      }
     });
   })();
 
@@ -327,14 +359,21 @@ jQuery(document).ready(function ($) {
       var $filterClose = $('#js-filter-close');
 
       $filterOpen.click(function(e) {
+        e.preventDefault();
+
         $(this).addClass('active');
         $filterClose.addClass('active');
         $('.catalog__filter').addClass('active');
+        Scrollbar.destroyAll();
       });
 
       $filterClose.click(function(e) {
+        e.preventDefault();
+
         $(this).removeClass('active');
         $('.catalog__filter').removeClass('active');
+        initScrollbar();
+        initWatcher();
       });
     }
   })();
@@ -533,7 +572,7 @@ jQuery(document).ready(function ($) {
           product: {
             title: 'Супер вилла',
             link: '#test',
-            isSale: false,
+            isSale: true,
             isRented: true,
             img: './img/item-1.jpg',
             prices: {
@@ -617,6 +656,8 @@ jQuery(document).ready(function ($) {
                 $('.products__item-advantages').removeClass('products__item--three');
                 $('.products__item-advantages').removeClass('products__item--four');
                 $('.products__item-advantages')[0].innerHTML = '';
+                $('.products__item-sale').removeClass('visible');
+                $('.products__item-lock').removeClass('visible');
 
                 var item = markers[_i].product;
 
@@ -627,6 +668,14 @@ jQuery(document).ready(function ($) {
                 $product.find('.products__item-prices .products__item-price--sale').text(item.prices.sale);
                 $product.find('.products__item-info .products__item-col:nth-of-type(1) .products__item-col--val').text(item.info.deal);
                 $product.find('.products__item-info .products__item-col:nth-of-type(2) .products__item-col--val').text(item.info.type);
+
+                if (item.isSale) {
+                  $('.products__item-sale').addClass('visible');
+                }
+
+                if (item.isRented) {
+                  $('.products__item-lock').addClass('visible');
+                }
 
                 if (item.advantages.length > 3) {
                   $('.products__item-advantages').addClass('products__item--four');

@@ -107,9 +107,6 @@ body
 .main,
 .footer
   width: 100%
-
-section
-  overflow-x: hidden
   
 .p-reviews
   &__action
@@ -186,6 +183,7 @@ body
 .page
   height: 100vh
   width: 100%
+  overflow: hidden
   position: relative
 
 .daterangepicker
@@ -1396,14 +1394,16 @@ input[type="submit"]
           justify-content: center
           margin-left: 8px
           cursor: pointer
+          &.active
+            svg
+              transform: rotate(-270deg)
         svg
           transform: rotate(-90deg)
           width: 14px
           height: 14px
           transition: .25s all ease-in
           fill: #fff
-          &.active
-            transform: rotate(-270deg)
+
       &.mobile-menu__nav-inner
         max-height: 0
         width: 100%
@@ -1707,6 +1707,7 @@ input[type="submit"]
   &.caption--left
     text-align: left
   &.caption--bg
+    overflow: hidden
     &:before
       content: attr(data-caption)
       position: absolute
@@ -2068,10 +2069,18 @@ input[type="submit"]
       &.visible
         opacity: 1
         transform: translateY(0%)
+    &-sale,
+    &-lock
+      opacity: 0
+      visibility: hidden
+      &.visible
+        opacity: 1
+        visibility: visible
     &-sale
       display: inline-block
       position: absolute
       width: 2.1875rem
+      z-index: 1
       top: 1.5625rem
       right: 1.5625rem
       height: 2.1875rem
@@ -2199,6 +2208,7 @@ input[type="submit"]
     &-img
       position: relative
       display: block
+      z-index: 0
       img
         width: 100%
         height: auto
@@ -2296,6 +2306,12 @@ input[type="submit"]
 .reviews
   &__slider
     z-index: 0
+    &.disabled
+      .swiper-arrows,
+      .swiper-pagination
+        cursor: auto
+        transition: none
+        pointer-events: none
     .swiper-wrapper
       z-index: -1
     .swiper-container
