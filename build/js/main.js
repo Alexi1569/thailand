@@ -7,10 +7,10 @@ jQuery(document).ready(function ($) {
 
   var Scrollbar = window.Scrollbar;
 
-  // var scrollbar = Scrollbar.init(document.querySelector('#page'), {
-  //   damping: .025,
-  //   alwaysShowTracks: true
-  // });
+  var scrollbar = Scrollbar.init(document.querySelector('#page'), {
+    damping: .1,
+    alwaysShowTracks: true
+  });
 
   $.fancybox.defaults.hideScrollbar = false;
   $.fancybox.defaults.touch = false;
@@ -444,7 +444,7 @@ jQuery(document).ready(function ($) {
         $(this)[0],
         {
           center: new google.maps.LatLng(-33.91722, 151.23064),
-          zoom: 10,
+          zoom: 11,
           disableDefaultUI: true,
         }
       );
@@ -527,6 +527,41 @@ jQuery(document).ready(function ($) {
             ]
           }
         },
+        {
+          position: new google.maps.LatLng(-33.89, 151.16),
+          label: 'К',
+          product: {
+            title: 'Супер вилла',
+            link: '#test',
+            isSale: false,
+            isRented: true,
+            img: './img/item-1.jpg',
+            prices: {
+              current: '$2500',
+            },
+            info: {
+              deal: 'аренда',
+              type: 'продажа'
+            },
+            advantages: [
+              {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.1 23.1"><path d="M22.7 20.8c-.2 0-.4.2-.4.4v1.1h-1.1c-.2 0-.4.2-.4.4s.2.4.4.4h1.5c.2 0 .4-.2.4-.4v-1.5c0-.2-.2-.4-.4-.4zM18.4 22.3h-2.8c-.2 0-.4.2-.4.4s.2.4.4.4h2.8c.2 0 .4-.2.4-.4s-.1-.4-.4-.4zM12.9 22.3h-2.8c-.2 0-.4.2-.4.4s.2.4.4.4h2.8c.2 0 .4-.2.4-.4s-.1-.4-.4-.4zM7.4 22.3H4.7c-.2 0-.4.2-.4.4s.2.4.4.4h2.8c.2 0 .4-.2.4-.4s-.3-.4-.5-.4zM1.9 22.3H.8v-1.1c0-.2-.2-.4-.4-.4s-.4.2-.4.4v1.5c0 .2.2.4.4.4h1.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4zM.4 18.8c.2 0 .4-.2.4-.4v-2.8c0-.2-.2-.4-.4-.4s-.4.3-.4.5v2.8c0 .2.2.3.4.3zM.4 7.8c.2 0 .4-.2.4-.4V4.7c0-.2-.2-.4-.4-.4s-.4.1-.4.4v2.8c0 .1.2.3.4.3zM.4 13.3c.2 0 .4-.2.4-.4v-2.8c0-.2-.2-.4-.4-.4s-.4.3-.4.5V13c0 .2.2.3.4.3zM1.9 0H.4C.2 0 0 .2 0 .4v1.5c0 .2.2.4.4.4s.4-.2.4-.4V.8h1.1c.2 0 .4-.2.4-.4S2.1 0 1.9 0zM4.7.8h2.8c.2 0 .4-.2.4-.4S7.6 0 7.4 0H4.7c-.3 0-.4.2-.4.4s.1.4.4.4zM10.2.8H13c.2 0 .4-.2.4-.4s-.3-.4-.5-.4h-2.8c-.1 0-.3.2-.3.4s.2.4.4.4zM15.7.8h2.8c.2 0 .4-.2.4-.4s-.2-.4-.5-.4h-2.8c-.2 0-.4.2-.4.4s.3.4.5.4zM22.7 0h-1.5c-.2 0-.4.2-.4.4s.2.4.4.4h1.1v1.1c0 .2.2.4.4.4s.4-.2.4-.4V.4c0-.2-.2-.4-.4-.4zM22.7 4.3c-.2 0-.4.2-.4.4v2.8c0 .2.2.4.4.4s.4-.2.4-.4V4.7c0-.3-.2-.4-.4-.4zM22.7 9.8c-.2 0-.4.2-.4.4V13c0 .2.2.4.4.4s.4-.2.4-.4v-2.8c0-.2-.2-.4-.4-.4zM22.7 15.3c-.2 0-.4.2-.4.4v2.8c0 .2.2.4.4.4s.4-.2.4-.4v-2.8c0-.2-.2-.4-.4-.4zM4.2 7.4c.2 0 .4-.2.4-.4V4.7H7c.2 0 .4-.2.4-.4s-.2-.4-.4-.4H4.2c-.2 0-.4.1-.4.4V7c0 .2.2.4.4.4zM7.4 18.8c0-.2-.2-.4-.4-.4H4.6V16c0-.2-.2-.4-.4-.4s-.4.2-.4.4v2.8c0 .2.2.4.4.4H7c.2 0 .4-.1.4-.4zM18.9 15.7c-.2 0-.4.2-.4.4v2.4h-2.4c-.2 0-.4.2-.4.4s.2.4.4.4h2.8c.2 0 .4-.2.4-.4v-2.8c0-.2-.2-.4-.4-.4z"/><path d="M17.9 5.8c.2-.2.2-.4 0-.6s-.4-.2-.6 0l-3.5 3.5H9.3L5.8 5.2c-.2-.2-.4-.2-.6 0s-.2.4 0 .6l3.5 3.5v4.5l-3.5 3.5c-.2.2-.2.4 0 .6.1.1.2.1.3.1s.2 0 .3-.1l3.5-3.5h4.5l3.5 3.5c.1.1.2.1.3.1s.2 0 .3-.1c.2-.2.2-.4 0-.6l-3.5-3.5V9.3l3.5-3.5zM9.6 9.6h4v4h-4v-4z"/><path d="M18.9 3.9h-2.8c-.2 0-.4.2-.4.4s.2.4.4.4h2.4V7c0 .2.2.4.4.4s.4-.2.4-.4V4.3c0-.3-.2-.4-.4-.4z"/></svg>',
+                key: 'Площадь',
+                val: '54 м<sup>2</sup>'
+              },
+              {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 58"><path d="M1 58h4c.6 0 1-.4 1-1v-2c0-1.7 1.3-3 3-3h32c1.7 0 3 1.3 3 3v2c0 .6.4 1 1 1h4c.6 0 1-.4 1-1V37c0-1.3-.8-2.4-2-2.8V25c0-2.8-2.2-5-5-5H7c-2.8 0-5 2.2-5 5v9.2c-1.2.4-2 1.5-2 2.8v20c0 .6.4 1 1 1zm3-33c0-1.7 1.3-3 3-3h36c1.7 0 3 1.3 3 3v9h-3c.7-.9 1-1.9 1-3 0-2.8-2.2-5-5-5h-8c-2.8 0-5 2.2-5 5 0 1.1.4 2.1 1 3h-4c.7-.9 1-1.9 1-3 0-2.8-2.2-5-5-5h-8c-2.8 0-5 2.2-5 5 0 1.1.4 2.1 1 3H4v-9zm38 6c0 1.7-1.3 3-3 3h-8c-1.7 0-3-1.3-3-3s1.3-3 3-3h8c1.7 0 3 1.3 3 3zm-20 0c0 1.7-1.3 3-3 3h-8c-1.7 0-3-1.3-3-3s1.3-3 3-3h8c1.7 0 3 1.3 3 3zM2 42h5c.6 0 1-.4 1-1s-.4-1-1-1H2v-3c0-.6.4-1 1-1h44c.6 0 1 .4 1 1v7H2v-2zm0 4h46v10h-2v-1c0-2.8-2.2-5-5-5H9c-2.8 0-5 2.2-5 5v1H2V46z"/><path d="M59 56h-2V5c0-2.8-2.2-5-5-5h-3c-2.4 0-4.4 1.7-4.9 4H43c-.6 0-1 .4-1 1v3.6l-3.8 4.7c-.3.4-.3 1.1.2 1.4.2.1.4.2.6.2h2.1c.5 2.1 2.7 3.4 4.8 2.9 1.4-.4 2.5-1.5 2.9-2.9H51c.6 0 1-.4 1-1 0-.2-.1-.4-.2-.6L48 8.6V5c0-.6-.4-1-1-1h-.8c.4-1.2 1.5-2 2.8-2h3c1.7 0 3 1.3 3 3v51h-2c-.6 0-1 .4-1 1s.4 1 1 1h6c.6 0 1-.4 1-1s-.4-1-1-1zM44 6h2v2h-2V6zm1 10c-.7 0-1.4-.4-1.7-1h3.5c-.4.6-1.1 1-1.8 1zm1.5-6l2.4 3h-7.8l2.4-3h3zM12 40h-1c-.6 0-1 .4-1 1s.4 1 1 1h1c.6 0 1-.4 1-1s-.4-1-1-1z"/></svg>',
+                key: 'fdsfsdf',
+                val: '23'
+              },
+              {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.7 70.1"><path class="st0" d="M41.4 37.4c8.1 0 14.7-6.6 14.7-14.7S49.5 8 41.4 8s-14.7 6.6-14.7 14.7 6.6 14.7 14.7 14.7zm0-26.7c6.6 0 12 5.4 12 12s-5.4 12-12 12-12-5.4-12-12 5.4-12 12-12zm-22.6 18l1.9.7c1.6.5 2.9 1.6 3.8 3.1.8 1.4 1.1 3.1.8 4.8l-.4 2 2-.4c1.6-.3 3.3 0 4.8.8 1.4.8 2.5 2.2 3.1 3.8l.7 1.9 1.5-1.3c1.3-1.1 2.9-1.7 4.5-1.7 1.7 0 3.3.6 4.5 1.7l1.5 1.3.6-1.9c.5-1.6 1.6-2.9 3.1-3.8 1.4-.8 3.1-1.1 4.8-.8l2 .4-.4-2c-.3-1.6 0-3.3.8-4.8.8-1.4 2.2-2.5 3.8-3.1l1.9-.7-1.3-1.5c-1.1-1.3-1.7-2.9-1.7-4.5s.6-3.3 1.7-4.5l1.3-1.5-1.9-.7c-1.6-.5-2.9-1.6-3.8-3.1-.8-1.4-1.1-3.1-.8-4.8l.4-2-2 .4c-1.6.3-3.3 0-4.8-.8s-2.5-2.2-3.1-3.8L47.4 0l-1.5 1.3C44.6 2.4 43 3 41.4 3s-3.3-.6-4.5-1.7L35.4 0l-.7 1.9c-.5 1.6-1.6 2.9-3.1 3.8-1.4.8-3.1 1.1-4.8.8l-2-.4.4 2c.3 1.6 0 3.3-.8 4.8-.8 1.4-2.2 2.5-3.8 3.1l-1.8.6 1.3 1.5c1.1 1.3 1.7 2.9 1.7 4.5s-.6 3.3-1.7 4.5l-1.3 1.6zm4.4-10.9c1.5-.8 2.7-2.1 3.6-3.6s1.3-3.2 1.3-4.9c1.7 0 3.4-.4 4.9-1.3s2.7-2.1 3.6-3.6c2.9 1.7 6.8 1.7 9.8 0 .8 1.5 2.1 2.7 3.6 3.6s3.2 1.3 4.9 1.3c0 1.7.4 3.4 1.3 4.9.9 1.5 2.1 2.7 3.6 3.6-.9 1.5-1.3 3.2-1.3 4.9s.5 3.4 1.3 4.9c-1.5.8-2.7 2.1-3.6 3.6-.9 1.5-1.3 3.2-1.3 4.9-1.7 0-3.4.4-4.9 1.3s-2.7 2.1-3.6 3.6c-2.9-1.7-6.8-1.7-9.8 0-.8-1.5-2.1-2.7-3.6-3.6-1.5-.8-3.1-1.3-4.8-1.3h-.1c0-1.7-.4-3.4-1.3-4.9-.9-1.5-2.1-2.7-3.6-3.6.9-1.5 1.3-3.2 1.3-4.9s-.4-3.4-1.3-4.9zm18.2-4.4c.2-.7.9-1.1 1.7-1 4.2 1.1 7.4 4.4 8.5 8.5.2.7-.2 1.5-1 1.7h-.3c-.6 0-1.1-.4-1.3-1-.9-3.2-3.4-5.8-6.6-6.6-.7-.1-1.1-.9-1-1.6zM.5 54.6c-.5-.5-.6-1.4-.1-2s1.3-.6 1.9-.1c2.5 2.2 5.8 3.4 9.1 3.4s6.6-1.2 9.1-3.4l.9-.8.9.8c2.5 2.2 5.8 3.4 9.1 3.4s6.6-1.2 9.1-3.4l.9-.8.9.8c2.5 2.2 5.8 3.4 9.1 3.4s6.6-1.2 9.1-3.4l.9-.8.9.8c2.5 2.2 5.8 3.4 9.1 3.4s6.6-1.2 9.1-3.4c.6-.5 1.4-.4 1.9.1.5.6.4 1.4-.1 1.9-3 2.6-6.9 4.1-10.9 4.1-3.6 0-7.1-1.2-10-3.4-2.9 2.2-6.4 3.4-10 3.4s-7.1-1.2-10-3.4c-2.9 2.2-6.4 3.4-10 3.4s-7.1-1.2-10-3.4c-2.9 2.2-6.4 3.4-10 3.4-4 .1-7.9-1.4-10.9-4zm81.9 9.5c.5.6.4 1.4-.1 1.9-3 2.6-6.9 4.1-10.9 4.1-3.6 0-7.1-1.2-10-3.4-2.9 2.2-6.4 3.4-10 3.4s-7.1-1.2-10-3.4c-2.9 2.2-6.4 3.4-10 3.4s-7.1-1.2-10-3.4c-2.9 2.2-6.4 3.4-10 3.4-4 0-7.9-1.5-10.9-4.1-.6-.5-.6-1.3-.1-1.9s1.3-.6 1.9-.1c2.5 2.2 5.8 3.4 9.1 3.4s6.6-1.2 9.1-3.4l.9-.8.9.8c2.5 2.2 5.8 3.4 9.1 3.4s6.6-1.2 9.1-3.4l.9-.8.9.8c2.5 2.2 5.8 3.4 9.1 3.4s6.6-1.2 9.1-3.4l.9-.8.9.8c2.5 2.2 5.8 3.4 9.1 3.4s6.6-1.2 9.1-3.4c.6-.5 1.4-.4 1.9.1z"/></svg>',
+                key: 'До моря',
+                val: '500 м'
+              },
+            ]
+          }
+        },
       ];
 
       for (var i = 0; i < markers.length; i++) {
@@ -559,79 +594,92 @@ jQuery(document).ready(function ($) {
         });
 
         var $product = $('#map-product');
+        var $close = $product.find('.p-map__product-close');
+
+        $close.click(function(e) {
+          $product.fadeOut(150);
+          $('.gm-style img[src^="../img/marker"]').removeClass('active');
+          $('.gm-style img[src^="../img/marker"]').attr('src', '../img/marker.svg');
+        });
 
         marker.addListener('click', function(e) {
           if ($('.p-map').length) {
-            $product.fadeOut('250', function() {
-              var $img = $('.gm-style img[src^="../img/marker"]');
+            var $img = $('.gm-style img[src^="../img/marker"]');
+            var isActive = $(e.va.target).hasClass('active');
 
-              // $img.toggleClass('active');
-              //
-              // if ($img.hasClass('active')) {
-              //   $img.attr('src', '../img/marker-active.svg');
-              // } else {
-              //   $img.attr('src', '../img/marker.svg');
-              // }
+            $img.attr('src', '../img/marker.svg');
+            $img.removeClass('active');
 
-              $(e.va.target).toggleClass('active');
+            var index = $(e.va.target).closest('div').css('z-index');
 
-              if ($(e.va.target).hasClass('active')) {
-                $(e.va.target).attr('src', '../img/marker-active.svg');
-              } else {
-                $(e.va.target).attr('src', '../img/marker.svg');
-              }
-
-              var item = markers[_i].product;
-
-              $product.find('.products__item-title, .products__item-img').attr('href', item.link);
-              $product.find('.products__item-title > p').text(item.title);
-              $product.find('.products__item-img img').attr('src', item.img);
-              $product.find('.products__item-prices .products__item-price--default').text(item.prices.current);
-              $product.find('.products__item-prices .products__item-price--sale').text(item.prices.sale);
-              $product.find('.products__item-info .products__item-col:nth-of-type(1) .products__item-col--val').text(item.info.deal);
-              $product.find('.products__item-info .products__item-col:nth-of-type(2) .products__item-col--val').text(item.info.type);
-
-              if (item.advantages.length > 3) {
-                $('.products__item-advantages').addClass('products__item--four');
+            if (!isActive) {
+              $product.fadeOut(150, function() {
                 $('.products__item-advantages').removeClass('products__item--three');
-              } else {
                 $('.products__item-advantages').removeClass('products__item--four');
-                $('.products__item-advantages').addClass('products__item--three');
+                $('.products__item-advantages')[0].innerHTML = '';
+
+                var item = markers[_i].product;
+
+                $product.find('.products__item-title, .products__item-img').attr('href', item.link);
+                $product.find('.products__item-title > p').text(item.title);
+                $product.find('.products__item-img img').attr('src', item.img);
+                $product.find('.products__item-prices .products__item-price--default').text(item.prices.current);
+                $product.find('.products__item-prices .products__item-price--sale').text(item.prices.sale);
+                $product.find('.products__item-info .products__item-col:nth-of-type(1) .products__item-col--val').text(item.info.deal);
+                $product.find('.products__item-info .products__item-col:nth-of-type(2) .products__item-col--val').text(item.info.type);
+
+                if (item.advantages.length > 3) {
+                  $('.products__item-advantages').addClass('products__item--four');
+                  $('.products__item-advantages').removeClass('products__item--three');
+                } else {
+                  $('.products__item-advantages').removeClass('products__item--four');
+                  $('.products__item-advantages').addClass('products__item--three');
+                }
+
+                for (var j = 0; j < item.advantages.length; j++) {
+                  var el = document.createElement('div');
+                  el.className += 'products__item-advantage inline-flex ai-c';
+
+                  var i = document.createElement('i');
+                  i.className += 'products__item-advantage-icon';
+
+                  var svg = document.createElement('svg');
+                  svg.innerHTML = item.advantages[j].icon;
+                  i.appendChild(svg);
+
+                  var details = document.createElement('div');
+                  details.className += 'products__item-advantage-details';
+
+                  var key = document.createElement('p');
+                  key.className += 'products__item-advantage--key';
+                  key.innerHTML = item.advantages[j].key;
+
+                  var val = document.createElement('p');
+                  val.className += 'products__item-advantage--val';
+                  val.innerHTML = item.advantages[j].val;
+
+                  details.appendChild(key);
+                  details.appendChild(val);
+
+                  el.appendChild(i);
+                  el.appendChild(details);
+
+                  $('.products__item-advantages')[0].appendChild(el);
+                }
+              });
+
+              $product.fadeIn(150);
+
+              for(var k = 0; k < $img.length; k++) {
+                if ($($img[k]).closest('div').css('z-index') === index) {
+                  $($img[k]).attr('src', '../img/marker-active.svg');
+                  $($img[k]).addClass('active');
+                }
               }
-
-              for (var j = 0; j < item.advantages.length; j++) {
-                var el = document.createElement('div');
-                el.className += 'products__item-advantage inline-flex ai-c';
-
-                var i = document.createElement('i');
-                i.className += 'products__item-advantage-icon';
-
-                var svg = document.createElement('svg');
-                svg.innerHTML = item.advantages[j].icon;
-                i.appendChild(svg);
-
-                var details = document.createElement('div');
-                details.className += 'products__item-advantage-details';
-
-                var key = document.createElement('p');
-                key.className += 'products__item-advantage--key';
-                key.innerHTML = item.advantages[j].key;
-
-                var val = document.createElement('p');
-                val.className += 'products__item-advantage--val';
-                val.innerHTML = item.advantages[j].val;
-
-                details.appendChild(key);
-                details.appendChild(val);
-
-                el.appendChild(i);
-                el.appendChild(details);
-
-                $('.products__item-advantages')[0].appendChild(el);
-
-                $product.fadeIn('250');
-              }
-            });
+            } else {
+              $product.fadeOut(150);
+              $img.removeClass('active');
+            }
           }
         });
       };
