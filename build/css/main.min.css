@@ -2147,7 +2147,7 @@ body .scrollbar-track-y {
 }
 
 .page {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -3378,6 +3378,7 @@ html {
 html, body {
   overflow-x: hidden;
   width: 100%;
+  height: 100%;
 }
 
 button {
