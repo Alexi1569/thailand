@@ -361,19 +361,19 @@ jQuery(document).ready(function ($) {
       $filterOpen.click(function(e) {
         e.preventDefault();
 
+        Scrollbar.destroyAll();
         $(this).addClass('active');
         $filterClose.addClass('active');
         $('.catalog__filter').addClass('active');
-        Scrollbar.destroyAll();
       });
 
       $filterClose.click(function(e) {
         e.preventDefault();
 
-        $(this).removeClass('active');
-        $('.catalog__filter').removeClass('active');
         initScrollbar();
         initWatcher();
+        $(this).removeClass('active');
+        $('.catalog__filter').removeClass('active');
       });
     }
   })();

@@ -1801,7 +1801,7 @@ input[type="submit"] {
   display: none;
   height: 100%;
   width: auto;
-  transform: translateY(100%);
+  transform: translateX(100%);
   opacity: 0;
   right: 0;
   background-color: rgba(48, 48, 48, 0.85);
@@ -1930,7 +1930,7 @@ input[type="submit"] {
 .mobile-menu.active {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0%);
+  transform: translateX(0%);
 }
 
 .phone {
@@ -3895,7 +3895,7 @@ input[type="submit"] {
     visibility: hidden;
     opacity: 0;
     overflow-y: auto;
-    transform: translateY(100%);
+    transform: translateX(-100%);
     left: 0;
     top: 0;
     z-index: 12;
@@ -3906,7 +3906,7 @@ input[type="submit"] {
     transition: .55s all ease-in;
   }
   .catalog__filter.active {
-    transform: translateY(0%);
+    transform: translateX(0%);
     opacity: 1;
     visibility: visible;
   }

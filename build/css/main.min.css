@@ -4186,11 +4186,11 @@ input[type="submit"] {
   display: none;
   height: 100%;
   width: auto;
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transform: translateY(100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
   opacity: 0;
   right: 0;
   background-color: rgba(48, 48, 48, 0.85);
@@ -4370,11 +4370,11 @@ input[type="submit"] {
 .mobile-menu.active {
   opacity: 1;
   visibility: visible;
-  -webkit-transform: translateY(0%);
-  -moz-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  -o-transform: translateY(0%);
-  transform: translateY(0%);
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  -o-transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 .phone {
@@ -6901,11 +6901,11 @@ input[type="submit"] {
     visibility: hidden;
     opacity: 0;
     overflow-y: auto;
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    transform: translateY(100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
     left: 0;
     top: 0;
     z-index: 12;
@@ -6919,11 +6919,11 @@ input[type="submit"] {
     transition: .55s all ease-in;
   }
   .catalog__filter.active {
-    -webkit-transform: translateY(0%);
-    -moz-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    -o-transform: translateY(0%);
-    transform: translateY(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
     opacity: 1;
     visibility: visible;
   }
