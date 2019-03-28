@@ -482,6 +482,7 @@ console.log( $slider.find('.swiper-pagination'))
           center: new google.maps.LatLng(-33.91722, 151.23064),
           zoom: 11,
           disableDefaultUI: true,
+          gestureHandling: 'cooperative'
         }
       );
 

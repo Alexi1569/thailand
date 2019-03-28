@@ -124,6 +124,7 @@ body
     right: 0 !important
     width: auto !important
     b
+      transition: .25s all ease-in
       left: auto !important
       right: 0 !important
       margin: 0 !important
@@ -209,6 +210,13 @@ body
     width: 100%
   .scrollbar-track-y
     width: 6px
+
+body.touch-device
+  .products__item
+    &:hover
+      .products__item-img
+        img
+          transform: none
 
 .hidden
   display: none !important
@@ -384,6 +392,9 @@ body
     display: none
     transform: translateY(-50%)
     z-index: 1
+    &:hover
+      .products__item-img img
+        transform: none !important
     &-close
       position: absolute
       border-radius: 50%
@@ -744,6 +755,7 @@ body
         margin-right: 2%
       &-details
         margin-top: 2px
+        font-family: $med
       &--key
         padding: 0
         margin: 0
@@ -1117,6 +1129,9 @@ input[type="submit"]
 
 .beach
   &-item
+    &:hover
+      .beach-item__title
+        color: $red
     &__title
       width: 100%
       background-color: #ffffff
@@ -1129,6 +1144,7 @@ input[type="submit"]
       text-decoration: none
       display: flex
       align-items: center
+      transition: .25s all ease-in
       justify-content: center
 
 
@@ -1176,6 +1192,9 @@ input[type="submit"]
 .form
   &__group
     position: relative
+    &.open
+      .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b
+        transform: rotate(-90deg)
     &--error
       .form__group-message
         display: inline-block
@@ -1201,6 +1220,10 @@ input[type="submit"]
   padding: 0
 
   li
+    &:hover
+      svg
+        filter: grayscale(0)
+        opacity: 1
     &:not(:last-of-type)
       margin-right: .625rem
 
@@ -1210,27 +1233,13 @@ input[type="submit"]
     display: block
     position: relative
     overflow: hidden
-    &:hover
-      svg
-        fill: $red
-      &:before
-        transform: translateX(100%)
-    &:before
-      content: ''
-      display: inline-block
-      position: absolute
-      width: 100%
-      background-image: linear-gradient( 0deg, rgb(159,26,34) 0%, rgb(255,46,59) 100%)
-      left: 0
-      height: 100%
-      transform: translateX(-100%)
-      transition: .45s all ease
-
     svg
       max-width: 100%
       max-height: 100%
       fill: #707070
-      transition: .2s all ease-in .2s
+      transition: .25s all ease-in
+      filter: grayscale(100%)
+      opacity: .8
 
 .dropdown
   font-family: $med
@@ -1240,7 +1249,8 @@ input[type="submit"]
   position: relative
   &:hover,
   &.active
-    color: $red
+    p
+      color: $red
     ul
       box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.09)
       opacity: 1
@@ -1284,17 +1294,18 @@ input[type="submit"]
         display: inline-block
         position: absolute
         bottom: 0
-        left: 0
+        left: 50%
         transition: .25s all ease-in
         height: 1px
         background-color: transparent
-        width: 100%
-        transform: scaleX(0)
+        width: 0%
+        transform-origin: center center
       &:hover
         color: $red
         &:after
           background-color: $red
-          transform: scaleX(1)
+          width: 100%
+          left: 0
 
   p
     padding: 0
@@ -1386,6 +1397,8 @@ input[type="submit"]
     border-top: 1px solid rgba(#fff, .4)
   &__socials
     a
+      width: 20px
+      height: 20px
       svg
         fill: $red
   &__inner
@@ -1481,6 +1494,7 @@ input[type="submit"]
 
     &:hover
       color: $red
+      border-color: $red
 
 .header
   &__mobile
@@ -1638,7 +1652,7 @@ input[type="submit"]
       list-style-type: none
       margin: 0
       padding: 0
-      font-family: $med
+      font-family: $bold
       text-transform: uppercase
       height: 6.25rem
       position: relative
@@ -1651,7 +1665,6 @@ input[type="submit"]
 
         &:hover,
         &.active
-          color: $red
           svg
             transform: rotate(-270deg)
           .header__megamenu
@@ -2094,6 +2107,9 @@ input[type="submit"]
     max-width: 740px
     margin-bottom: 5rem
     background-color: #ffffff
+    &:hover
+      .products__item-img img
+        transform: scale(1.03)
     &:not(.p-map__product)
       opacity: 0
       transform: translateY(10%)
@@ -2127,6 +2143,7 @@ input[type="submit"]
       left: 0
       right: 0
       width: 100%
+      z-index: 1
       height: 100%
       line-height: 1
       background-color: rgba(#000, .6)
@@ -2224,7 +2241,7 @@ input[type="submit"]
           background-color: #828282
     &-prices
       position: absolute
-      bottom: -22px
+      top: -22px
       line-height: 1
       color: #ffffff
       min-width: 246px
@@ -2243,9 +2260,11 @@ input[type="submit"]
       position: relative
       display: block
       z-index: 0
+      overflow: hidden
       img
         width: 100%
         height: auto
+        transition: .25s all ease-in
         display: block
     &-title
       font-family: $med
@@ -2844,6 +2863,8 @@ input[type="submit"]
 @media screen and (max-width: 991px)
   html
     font-size: 13px
+  .products__content
+    margin-bottom: -2.5rem
   h1
     font-size: 1.4em
   h2
@@ -3092,12 +3113,12 @@ input[type="submit"]
     width: 100%
   .header__search
     input
-      width: calc(100vw - 30px)
+      width: 100vw
       margin-top: 0
       padding: 10px 15px
       box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.09)
       top: calc(100% - 6px)
-      right: 0
+      right: -15px
 
 
 @media screen and (max-width: 767px)
@@ -3292,6 +3313,12 @@ input[type="submit"]
     width: 80%
     min-height: 25rem
 
+@media screen and (max-width: 550px)
+  .breadcrumbs
+    padding-bottom: 0
+    & > .container
+      display: none
+
 @media screen and (max-width: 500px)
   .header__contacts
     display: none
@@ -3407,11 +3434,11 @@ input[type="submit"]
     justify-content: flex-start
     align-items: center
     .caption
-      order: 2
+      order: 1
       padding-left: 0
   .catalog__filter-btn
-    margin-bottom: 12px
-    order: 1
+    margin-top: 12px
+    order: 2
   .modal.callback-modal
     min-width: auto
     width: 97%
@@ -3442,6 +3469,11 @@ input[type="submit"]
         font-size: 1.3em
 
 
+@media screen and (max-width: 430px)
+  .caption.caption--bg:before
+    font-size: 1.1em
+    top: 3px
+
 @media screen and (max-width: 400px)
   .footer__top
     width: 100%
@@ -3468,3 +3500,7 @@ input[type="submit"]
   .p-product__form-right,
   .p-product__calendar
     width: 100%
+  .caption.caption--bg
+    &:before
+      font-size: 105%
+      top: 5px
