@@ -4003,12 +4003,6 @@ input[type="submit"] {
   padding: 0;
 }
 
-.socials li:hover svg {
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
-  opacity: 1;
-}
-
 .socials li:not(:last-of-type) {
   margin-right: .625rem;
 }
@@ -4029,9 +4023,6 @@ input[type="submit"] {
   -o-transition: .25s all ease-in;
   -moz-transition: .25s all ease-in;
   transition: .25s all ease-in;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  opacity: .8;
 }
 
 .dropdown {

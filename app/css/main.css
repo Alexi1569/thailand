@@ -1656,11 +1656,6 @@ input[type="submit"] {
   padding: 0;
 }
 
-.socials li:hover svg {
-  filter: grayscale(0);
-  opacity: 1;
-}
-
 .socials li:not(:last-of-type) {
   margin-right: .625rem;
 }
@@ -1678,8 +1673,6 @@ input[type="submit"] {
   max-height: 100%;
   fill: #707070;
   transition: .25s all ease-in;
-  filter: grayscale(100%);
-  opacity: .8;
 }
 
 .dropdown {
