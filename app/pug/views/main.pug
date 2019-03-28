@@ -5,7 +5,13 @@ block header
 
 block main
   main.main
-    section.banner(data-vide-bg="mp4: ./video/beach.mp4, ogv: ./video/beach.ogv, webm: ./video/beach.webm, poster: ./video/poster.jpg")
+    section.banner
+      .banner__video
+        video(playsinline loop autoplay muted poster="./video/poster.jpg")
+          source(src="./video/beach.mp4" type="video/mp4")
+          source(src="./video/beach.webm" type="video/webm")
+          source(src="./video/beach.ogv" type="video/ogv")
+
     section.configurator.pt
       .container
         p.configurator__title Мы поможем вам найти идеальный вариант
