@@ -13,6 +13,39 @@ $green: #00b184
   &:focus
     outline: none
 
+.scroll-content
+  display: flex
+  height: 100%
+  flex-direction: column
+  justify-content: space-between
+
+.main
+  &-wrapper
+    display: flex
+    height: 100%
+    width: 100%
+    align-items: center
+    justify-content: center
+    text-align: center
+    padding: 30px
+  &-links
+    margin: 0
+    list-style-type: none
+    padding: 0
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    margin-bottom: -16px
+    li
+      margin-right: 15px
+      margin-left: 15px
+      margin-bottom: 16px
+      &:last-of-type
+        margin-right: 0
+    a
+      text-decoration: none
+      font-size: 20px
+
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled
   opacity: .6
 
@@ -2305,14 +2338,28 @@ input[type="submit"]
         background-color: #3d3d3d
 
 .reviews
-  &__slider
+  &__content
+    position: relative
     z-index: 0
     &.disabled
-      .swiper-arrows,
-      .swiper-pagination
-        cursor: auto
-        transition: none
-        pointer-events: none
+      &:before
+        opacity: 1
+        visibility: visible
+    &:before
+      content: ''
+      display: block
+      opacity: 0
+      visibility: hidden
+      position: absolute
+      left: 0
+      top: 0
+      bottom: 0
+      right: 0
+      width: 100%
+      height: 100%
+      z-index: 5
+  &__slider
+    z-index: 0
     .swiper-wrapper
       z-index: -1
     .swiper-container

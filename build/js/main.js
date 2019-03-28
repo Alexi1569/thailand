@@ -161,17 +161,15 @@ jQuery(document).ready(function ($) {
     var $next = $slider.find('.swiper-button-next');
     var $prev = $slider.find('.swiper-button-prev');
     var $numbers = $slider.find('.reviews__numbers');
+    var $content = $('.reviews__content');
 
     var animateReviewsSlide = function(mySwiper) {
+      $content.addClass('disabled');
       var $current = $slider.find('.swiper-slide.swiper-slide-active');
 
       var tl = new TimelineLite();
 
-      tl.to($current.find('.reviews__img-inner'), .8, {x: '0%',
-          onStart: function() {
-            mySwiper.detachEvents();
-            $(mySwiper.$el).addClass('disabled');
-          }
+      tl.to($current.find('.reviews__img-inner'), .8, {x: '0%'
         })
         .to($current.find('.reviews__img-inner'), .65, {autoAlpha: 1}, '-=.65')
         .to($current.find('.reviews__img-inner'), .8, {width: '100%'})
@@ -181,8 +179,7 @@ jQuery(document).ready(function ($) {
         .to($current.find('.reviews__top-text'), .5, {x: 0, autoAlpha: 1}, '-=.25')
         .to($current.find('.reviews__text'), .5, {autoAlpha: 1,
           onComplete: function() {
-            mySwiper.attachEvents();
-            $(mySwiper.$el).removeClass('disabled');
+            $content.removeClass('disabled');
           }
         }, '-=.05');
     }
@@ -233,7 +230,7 @@ jQuery(document).ready(function ($) {
 
   (function initNewsSlider() {
     var $slider = $('#news-slider');
-
+console.log( $slider.find('.swiper-pagination'))
     var mySwiper = new Swiper($slider, {
       loop: false,
       speed: 650,
@@ -242,9 +239,9 @@ jQuery(document).ready(function ($) {
       slidesPerView: 3,
       pagination: {
         el: $slider.find('.swiper-pagination'),
-        type: 'bulvars',
+        type: 'bullets',
         clickable: true,
-        renderBulvar: function (index, className) {
+        renderBullet: function (index, className) {
           return '<button class="' + className + '"><span>' + (index + 1) + '</span></button>';
         }
       },

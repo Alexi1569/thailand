@@ -1902,6 +1902,84 @@ template {
   outline: none;
 }
 
+.scroll-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.main-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.main-links {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: -16px;
+}
+
+.main-links li {
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 16px;
+}
+
+.main-links li:last-of-type {
+  margin-right: 0;
+}
+
+.main-links a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
   opacity: .6;
 }
@@ -5898,18 +5976,33 @@ input[type="submit"] {
   background-color: #3d3d3d;
 }
 
-.reviews__slider {
+.reviews__content {
+  position: relative;
   z-index: 0;
 }
 
-.reviews__slider.disabled .swiper-arrows,
-.reviews__slider.disabled .swiper-pagination {
-  cursor: auto;
-  -webkit-transition: none;
-  -o-transition: none;
-  -moz-transition: none;
-  transition: none;
-  pointer-events: none;
+.reviews__content.disabled:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.reviews__content:before {
+  content: '';
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.reviews__slider {
+  z-index: 0;
 }
 
 .reviews__slider .swiper-wrapper {
