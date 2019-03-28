@@ -230,7 +230,6 @@ jQuery(document).ready(function ($) {
 
   (function initNewsSlider() {
     var $slider = $('#news-slider');
-console.log( $slider.find('.swiper-pagination'))
     var mySwiper = new Swiper($slider, {
       loop: false,
       speed: 650,
